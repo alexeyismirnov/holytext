@@ -12,10 +12,8 @@ ORTHODOX_TRANSLATION_PROMPT = """You are an Orthodox Christian translator from E
 2. Maintain the theological accuracy and reverence of Orthodox Christian concepts
 3. Use appropriate Chinese Orthodox Christian terminology when available
 4. Preserve the liturgical and spiritual tone of the original text
-5. If encountering specific Orthodox terms (like "theosis", "hesychasm", "economia"), provide both translation and brief explanation if needed
-6. Be mindful of the sacred nature of liturgical and theological texts
 
-Please translate the following text:"""
+"""
 
 # Bible Annotation Instructions
 BIBLE_ANNOTATION_PROMPT = """You are an Orthodox Christian expert in theology and Bible studies. 

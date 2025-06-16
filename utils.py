@@ -1,6 +1,10 @@
 import streamlit as st
-from typing import Dict, List, Optional
+from typing import Dict, List, Optional, Tuple
 from constants import ORTHODOX_TRANSLATION_PROMPT, BIBLE_ANNOTATION_PROMPT
+from orthodox_dictionary import OrthodoxDictionary
+
+# Initialize the Orthodox Dictionary handler
+orthodox_dict = OrthodoxDictionary(dict_path="dict.jsonl", min_score=80)
 
 # Enhanced prompt engineering function for Orthodox Christian translation and Bible annotation
 def process_user_message(user_message: str, messages: List[Dict], orthodox_enabled: bool) -> tuple[List[Dict], str, str]:
@@ -39,9 +43,17 @@ def process_user_message(user_message: str, messages: List[Dict], orthodox_enabl
         # Extract the text to be translated (everything after "translate")
         text_to_translate = user_message[9:].strip()  # Remove "translate " (9 chars)
         
-        # Create the enhanced message with Orthodox Christian context
+        # Find matching Orthodox terms in the text to translate
         if text_to_translate:
-            processed_query = f"{ORTHODOX_TRANSLATION_PROMPT}\n\n{text_to_translate}"
+            # Use the fuzzy matcher to find Orthodox terms in the text
+            matching_terms = orthodox_dict.find_matching_terms(text_to_translate)
+            
+            # Create dictionary prompt section if matches were found
+            dictionary_prompt = orthodox_dict.create_dictionary_prompt(matching_terms)
+            
+            # Create the enhanced message with Orthodox Christian context and dictionary
+            processed_query = f"{ORTHODOX_TRANSLATION_PROMPT}{dictionary_prompt}\n\n" + "Please translate the following text:\n\n" + text_to_translate
+  
         else:
             # If no text after "translate", ask for clarification
             processed_query = f"{ORTHODOX_TRANSLATION_PROMPT}\n\n(Please provide the English text you would like me to translate to traditional Chinese.)"
@@ -50,8 +62,25 @@ def process_user_message(user_message: str, messages: List[Dict], orthodox_enabl
         
     elif user_message_lower.startswith("translate"):
         command_type = "translate_standard"
-        # For standard translation (Orthodox mode disabled), just add the user message as-is
-        processed_messages.append({"role": "user", "content": user_message})
+        
+        # Extract the text to be translated (everything after "translate")
+        text_to_translate = user_message[9:].strip()  # Remove "translate " (9 chars)
+        
+        if text_to_translate:
+            # Even in standard mode, we can use the dictionary for consistent terminology
+            matching_terms = orthodox_dict.find_matching_terms(text_to_translate)
+            dictionary_prompt = orthodox_dict.create_dictionary_prompt(matching_terms)
+            
+            # For standard translation, add dictionary but not the Orthodox context
+            if dictionary_prompt:
+                processed_query = f"Please translate the following text from English to Traditional Chinese.{dictionary_prompt}\n\n{text_to_translate}"
+                processed_messages.append({"role": "user", "content": processed_query})
+            else:
+                # If no specialized terms found, just add the user message as-is
+                processed_messages.append({"role": "user", "content": user_message})
+        else:
+            # If no text after "translate", just add the user message as-is
+            processed_messages.append({"role": "user", "content": user_message})
         
     else:
         # For regular messages, just add the user message as-is
