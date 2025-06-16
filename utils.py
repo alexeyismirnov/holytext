@@ -4,7 +4,7 @@ from constants import ORTHODOX_TRANSLATION_PROMPT, BIBLE_ANNOTATION_PROMPT
 from orthodox_dictionary import OrthodoxDictionary
 
 # Initialize the Orthodox Dictionary handler
-orthodox_dict = OrthodoxDictionary(dict_path="dict.jsonl", min_score=80)
+orthodox_dict = OrthodoxDictionary(dict_path="dict.jsonl", min_score=65)
 
 # Enhanced prompt engineering function for Orthodox Christian translation and Bible annotation
 def process_user_message(user_message: str, messages: List[Dict], orthodox_enabled: bool) -> tuple[List[Dict], str, str]:
