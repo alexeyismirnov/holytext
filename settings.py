@@ -100,11 +100,6 @@ def show_settings():
     
     st.sidebar.divider()
     
-    # Command help section
-    show_command_help()
-    
-    st.sidebar.divider()
-    
     # Action buttons
     show_action_buttons()
     
@@ -138,19 +133,7 @@ def show_arena_settings():
     if orthodox_enabled_a != st.session_state.orthodox_translation_enabled_a:
         st.session_state.orthodox_translation_enabled_a = orthodox_enabled_a
         st.rerun()
-    
-    # Debug Mode Toggle for Model A
-    debug_enabled_a = st.sidebar.toggle(
-        "🐛 Debug Mode A",
-        value=st.session_state.debug_mode_a,
-        help="Show processed queries sent to Model A",
-        key="debug_a"
-    )
-    
-    if debug_enabled_a != st.session_state.debug_mode_a:
-        st.session_state.debug_mode_a = debug_enabled_a
-        st.rerun()
-    
+        
     st.sidebar.subheader("🟣 Model B Settings")
     
     # Model B selection
@@ -177,18 +160,6 @@ def show_arena_settings():
         st.session_state.orthodox_translation_enabled_b = orthodox_enabled_b
         st.rerun()
     
-    # Debug Mode Toggle for Model B
-    debug_enabled_b = st.sidebar.toggle(
-        "🐛 Debug Mode B",
-        value=st.session_state.debug_mode_b,
-        help="Show processed queries sent to Model B",
-        key="debug_b"
-    )
-    
-    if debug_enabled_b != st.session_state.debug_mode_b:
-        st.session_state.debug_mode_b = debug_enabled_b
-        st.rerun()
-
 def show_basic_settings():
     """Show settings for basic mode"""
     # Basic mode settings
@@ -224,24 +195,14 @@ def show_basic_settings():
         st.session_state.debug_mode = debug_enabled
         st.rerun()
     
-    # Show current mode status
-    status_items = []
-    if st.session_state.orthodox_translation_enabled:
-        status_items.append("✝️ Orthodox: ON")
-    else:
-        status_items.append("📝 Standard: ON")
-    
-    if st.session_state.debug_mode:
-        status_items.append("🐛 Debug: ON")
-    
-    st.sidebar.success(" | ".join(status_items))
 
 def show_command_help():
     """Show help information about available commands"""
     st.sidebar.subheader("📖 Available Commands")
     st.sidebar.markdown(COMMAND_HELP_TEXT)
     
-    if st.session_state.debug_mode or st.session_state.debug_mode_a or st.session_state.debug_mode_b:
+    # Only show debug info message in basic mode
+    if not st.session_state.arena_mode and st.session_state.debug_mode:
         st.sidebar.info("🐛 Debug mode shows the actual query sent to LLM when commands modify the original input")
 
 def show_action_buttons():
@@ -253,6 +214,9 @@ def show_action_buttons():
             st.session_state.messages = []
             st.session_state.messages_a = []
             st.session_state.messages_b = []
+            # Also clear debug information
+            if "debug_queries" in st.session_state:
+                st.session_state.debug_queries = []
             st.rerun()
     
     with col2:
@@ -274,13 +238,6 @@ def show_action_buttons():
 
 def show_status_indicator():
     """Show API key status indicator"""
-    if st.session_state.api_key:
-        st.sidebar.success("✅ Ready to chat")
-        cache_file = get_cache_file()
-        if cache_file.exists():
-            st.sidebar.caption("💾 API key saved locally")
-        else:
-            st.sidebar.caption("⚠️ API key not saved")
-    else:
+    if not st.session_state.api_key:
         st.sidebar.error(API_KEY_REQUIRED_ERROR)
         st.sidebar.markdown("[Get API Key →](https://openrouter.ai/keys)")

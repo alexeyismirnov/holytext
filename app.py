@@ -44,10 +44,7 @@ def initialize_session_state():
         st.session_state.orthodox_translation_enabled_b = False  # Default is OFF for comparison
     if "debug_mode" not in st.session_state:
         st.session_state.debug_mode = False  # Default is OFF
-    if "debug_mode_a" not in st.session_state:
-        st.session_state.debug_mode_a = False  # Default is OFF
-    if "debug_mode_b" not in st.session_state:
-        st.session_state.debug_mode_b = False  # Default is OFF
+    # Removed debug mode variables for arena mode
     if "arena_mode" not in st.session_state:
         st.session_state.arena_mode = False  # Default is basic mode
     if "key_loaded_from_file" not in st.session_state:
@@ -63,17 +60,18 @@ def arena_chat():
         st.warning(API_KEY_MISSING_WARNING)
         return
     
+    # Remove debug queries display from arena mode
+    
     # Create two columns for side-by-side comparison
     col_a, col_b = st.columns(2)
     
     with col_a:
-        # Model A header
+        # Model A header - remove debug status
         orthodox_status_a = "✝️ Orthodox ON" if st.session_state.orthodox_translation_enabled_a else "📝 Standard"
-        debug_status_a = " | 🐛 Debug ON" if st.session_state.debug_mode_a else ""
         st.markdown(f"""
             <div class="arena-header model-a-header">
                 🔵 Model A: {st.session_state.selected_model_a}<br>
-                <small>{orthodox_status_a}{debug_status_a}</small>
+                <small>{orthodox_status_a}</small>
             </div>
         """, unsafe_allow_html=True)
         
@@ -83,13 +81,12 @@ def arena_chat():
                 st.markdown(message["content"])
     
     with col_b:
-        # Model B header
+        # Model B header - remove debug status
         orthodox_status_b = "✝️ Orthodox ON" if st.session_state.orthodox_translation_enabled_b else "📝 Standard"
-        debug_status_b = " | 🐛 Debug ON" if st.session_state.debug_mode_b else ""
         st.markdown(f"""
             <div class="arena-header model-b-header">
                 🟣 Model B: {st.session_state.selected_model_b}<br>
-                <small>{orthodox_status_b}{debug_status_b}</small>
+                <small>{orthodox_status_b}</small>
             </div>
         """, unsafe_allow_html=True)
         
@@ -118,12 +115,7 @@ def arena_chat():
         elif command_type_a == "translate_standard" or command_type_b == "translate_standard":
             show_command_indicator("translate_standard")
         
-        # Show debug queries if enabled
-        col_debug_a, col_debug_b = st.columns(2)
-        with col_debug_a:
-            show_debug_query(prompt, processed_query_a, st.session_state.debug_mode_a)
-        with col_debug_b:
-            show_debug_query(prompt, processed_query_b, st.session_state.debug_mode_b)
+        # Remove debug queries display
         
         # Get model IDs
         model_id_a = MODELS[st.session_state.selected_model_a]
@@ -174,6 +166,16 @@ def basic_chat():
         st.warning(API_KEY_MISSING_WARNING)
         st.info(API_KEY_INFO)
         return
+    
+    # Display debug queries in sidebar if they exist and debug mode is enabled
+    if st.session_state.debug_mode and "debug_queries" in st.session_state and st.session_state.debug_queries:
+        st.sidebar.markdown("### Debug Information")
+        for i, debug_query in enumerate(st.session_state.debug_queries):
+            with st.sidebar.expander(f"🐛 Debug Query #{i+1}", expanded=False):
+                st.markdown("**Original Query:**")
+                st.markdown(f"```\n{debug_query['original']}\n```")
+                st.markdown("**Processed Query Sent to LLM:**")
+                st.markdown(f"```\n{debug_query['processed']}\n```")
     
     # Display chat messages
     for message in st.session_state.messages:

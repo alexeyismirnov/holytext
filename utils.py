@@ -61,8 +61,23 @@ def process_user_message(user_message: str, messages: List[Dict], orthodox_enabl
 
 # Function to show debug query
 def show_debug_query(original_query: str, processed_query: str, debug_enabled: bool):
-    """Show the processed query in debug mode if it differs from original"""
+    """
+    Show the processed query in debug mode if it differs from original.
+    Only shows the current debug query in the chat window.
+    Stores all debug information in session state for sidebar display.
+    """
     if debug_enabled and original_query != processed_query:
+        # Store the debug information in session state for sidebar display
+        if "debug_queries" not in st.session_state:
+            st.session_state.debug_queries = []
+        
+        # Add the current debug query to the list
+        st.session_state.debug_queries.append({
+            "original": original_query,
+            "processed": processed_query
+        })
+        
+        # Only display the current debug query in the chat window
         with st.expander("🐛 Debug: Processed Query Sent to LLM", expanded=False):
             st.markdown(f"""
             <div class="debug-query">
