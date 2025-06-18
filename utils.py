@@ -187,46 +187,6 @@ def process_user_message(user_message: str, messages: List[Dict], orthodox_enabl
         
         processed_messages.append({"role": "user", "content": processed_query})
         
-    elif user_message_lower.startswith("translate"):
-        command_type = "translate_standard"
-        
-        # Extract the command part and the text to translate
-        _, text_to_translate = extract_command_and_text(user_message, "translate")
-        
-        if text_to_translate:
-            # Even in standard mode, we can use the dictionary for consistent terminology
-            matching_terms = orthodox_dict.find_matching_terms(text_to_translate)
-            dictionary_prompt = orthodox_dict.create_dictionary_prompt(matching_terms)
-            
-            # NEW: Check for Bible references in the text and add their translations to the dictionary
-            bible_translations = get_bible_quote_translations(text_to_translate)
-            
-            # If Bible translations were found, add them to the dictionary prompt
-            if bible_translations:
-                if not dictionary_prompt:
-                    dictionary_prompt = "\nWhen translating the text, you MUST use the following dictionary of terms:\n\n"
-                else:
-                    dictionary_prompt += "\nAdditionally, use these translations for Bible quotes found in the text:\n\n"
-                
-                for english_quote, chinese_quote in bible_translations:
-                    # Format the Bible quotes as dictionary entries
-                    # Truncate long quotes if needed to keep the prompt manageable
-                    eng_quote = english_quote[:150] + "..." if len(english_quote) > 150 else english_quote
-                    dictionary_prompt += f"- \"{eng_quote}\": \"{chinese_quote}\"\n"
-                
-                dictionary_prompt += "\nThese translations for Bible quotes are authoritative and must be used exactly as provided.\n"
-            
-            # For standard translation, add dictionary but not the Orthodox context
-            if dictionary_prompt:
-                processed_query = f"Please translate the following text from English to Traditional Chinese.{dictionary_prompt}\n\n{text_to_translate}"
-                processed_messages.append({"role": "user", "content": processed_query})
-            else:
-                # If no specialized terms found, just add the user message as-is
-                processed_messages.append({"role": "user", "content": user_message})
-        else:
-            # If no text after "translate", just add the user message as-is
-            processed_messages.append({"role": "user", "content": user_message})
-        
     else:
         # For regular messages, just add the user message as-is
         processed_messages.append({"role": "user", "content": user_message})
