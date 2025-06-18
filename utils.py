@@ -7,6 +7,56 @@ from bible_service import process_footnotes
 # Initialize the Orthodox Dictionary handler
 orthodox_dict = OrthodoxDictionary(dict_path="dict.jsonl", min_score=65)
 
+import re
+import streamlit as st
+from typing import Dict, List, Optional, Tuple
+from constants import ORTHODOX_TRANSLATION_PROMPT, BIBLE_ANNOTATION_PROMPT
+from orthodox_dictionary import OrthodoxDictionary
+from bible_service import process_footnotes
+
+# Initialize the Orthodox Dictionary handler
+orthodox_dict = OrthodoxDictionary(dict_path="dict.jsonl", min_score=65)
+
+def extract_command_and_text(user_message: str, command_prefix: str) -> Tuple[str, str]:
+    """
+    Extract the command and the text to process, considering variations in command format.
+    Looks for punctuation marks that might separate the command from the text.
+    
+    Args:
+        user_message: The full user message
+        command_prefix: The basic command prefix to look for (e.g., "translate", "annotate")
+        
+    Returns:
+        Tuple of (command_part, text_to_process)
+    """
+    # Check if the message starts with the command prefix
+    if not user_message.lower().startswith(command_prefix.lower()):
+        return "", user_message
+    
+    # Find the first punctuation mark after the command prefix
+    # Common separators: ":", ".", ",", "-", ";"
+    command_part = user_message
+    text_to_process = ""
+    
+    # Look for punctuation marks that might separate command from text
+    separators = [":", ".", ",", "-", ";", "\n"]
+    min_pos = len(user_message)
+    
+    for sep in separators:
+        pos = user_message.find(sep, len(command_prefix))
+        if pos > 0 and pos < min_pos:
+            min_pos = pos
+            command_part = user_message[:min_pos + 1]  # Include the separator
+            text_to_process = user_message[min_pos + 1:].strip()
+    
+    # If no separator found, assume the command is just the prefix
+    # and everything after is the text
+    if text_to_process == "":
+        command_part = command_prefix
+        text_to_process = user_message[len(command_prefix):].strip()
+    
+    return command_part, text_to_process
+
 # Enhanced prompt engineering function for Orthodox Christian translation and Bible annotation
 def process_user_message(user_message: str, messages: List[Dict], orthodox_enabled: bool) -> tuple[List[Dict], str, str]:
     """
@@ -25,8 +75,8 @@ def process_user_message(user_message: str, messages: List[Dict], orthodox_enabl
     if user_message_lower.startswith("add footnotes"):
         command_type = "add_footnotes"
         
-        # Extract the text to add footnotes to (everything after "add footnotes")
-        text_to_process = user_message[13:].strip()  # Remove "add footnotes " (13 chars)
+        # Extract the command part and the text to process
+        _, text_to_process = extract_command_and_text(user_message, "add footnotes")
         
         if text_to_process:
             # Process the text to extract Bible references and fetch their content
@@ -54,8 +104,8 @@ def process_user_message(user_message: str, messages: List[Dict], orthodox_enabl
     elif user_message_lower.startswith("annotate"):
         command_type = "annotate"
         
-        # Extract the text to be annotated (everything after "annotate")
-        text_to_annotate = user_message[8:].strip()  # Remove "annotate " (8 chars)
+        # Extract the command part and the text to annotate
+        _, text_to_annotate = extract_command_and_text(user_message, "annotate")
         
         # Create the enhanced message with Bible annotation instructions
         if text_to_annotate:
@@ -70,8 +120,8 @@ def process_user_message(user_message: str, messages: List[Dict], orthodox_enabl
     elif user_message_lower.startswith("translate") and orthodox_enabled:
         command_type = "translate_orthodox"
         
-        # Extract the text to be translated (everything after "translate")
-        text_to_translate = user_message[9:].strip()  # Remove "translate " (9 chars)
+        # Extract the command part and the text to translate
+        _, text_to_translate = extract_command_and_text(user_message, "translate")
         
         # Find matching Orthodox terms in the text to translate
         if text_to_translate:
@@ -93,8 +143,8 @@ def process_user_message(user_message: str, messages: List[Dict], orthodox_enabl
     elif user_message_lower.startswith("translate"):
         command_type = "translate_standard"
         
-        # Extract the text to be translated (everything after "translate")
-        text_to_translate = user_message[9:].strip()  # Remove "translate " (9 chars)
+        # Extract the command part and the text to translate
+        _, text_to_translate = extract_command_and_text(user_message, "translate")
         
         if text_to_translate:
             # Even in standard mode, we can use the dictionary for consistent terminology

@@ -60,8 +60,9 @@ def parse_bible_reference(reference: str) -> Optional[Tuple[str, str]]:
         if reference.startswith('(') and reference.endswith(')'):
             reference = reference[1:-1].strip()
         
-        # Basic pattern: Book Chapter:Verse(-Verse)
-        pattern = r'([\w\s]+)\s+(\d+):(\d+)(?:-(\d+))?'
+        # More flexible pattern that handles variable spacing
+        # This pattern allows for any amount of whitespace between components
+        pattern = r'([\w\s]+?)\s+(\d+)\s*:\s*(\d+)(?:\s*-\s*(\d+))?'
         match = re.match(pattern, reference)
         
         if not match:
@@ -140,8 +141,8 @@ def extract_bible_references(text: str) -> List[Tuple[str, str]]:
     Returns:
         List of tuples containing (reference, full_match)
     """
-    # Pattern to match Bible references in parentheses
-    pattern = r'\(([\w\s]+\s+\d+:\d+(?:-\d+)?)\)'
+    # More flexible pattern to match Bible references in parentheses with variable spacing
+    pattern = r'\(([\w\s]+?\s+\d+\s*:\s*\d+(?:\s*-\s*\d+)?)\)'
     
     matches = re.finditer(pattern, text)
     references = []
