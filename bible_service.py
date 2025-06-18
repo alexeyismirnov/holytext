@@ -39,7 +39,7 @@ def parse_bible_reference(reference: str) -> Optional[Tuple[str, str]]:
         "2 samuel": "2sam", "2 sam": "2sam", "ii sam": "2sam", "ii samuel": "2sam",
         "1 chronicles": "1chron", "1 chron": "1chron", "i chron": "1chron", "i chronicles": "1chron",
         "2 chronicles": "2chron", "2 chron": "2chron", "ii chron": "2chron", "ii chronicles": "2chron",
-        "matthew": "matt", "mark": "mark", "luke": "luke", "john": "john",
+        "matthew": "matthew", "mark": "mark", "luke": "luke", "john": "john",
         "acts": "acts", "romans": "rom", "galatians": "gal", "ephesians": "eph",
         "philippians": "phil", "colossians": "col", "titus": "titus", "philemon": "philem",
         "hebrews": "heb", "james": "james", "jude": "jude", "revelation": "rev",
@@ -119,8 +119,9 @@ def fetch_bible_text(book_name: str, where_expr: str, lang: str = "en") -> Optio
             # Format the text
             formatted_text = ""
             for verse in verses:
-                formatted_text += f"{verse['verse']}. {verse['text']} "
-            
+                #formatted_text += f"{verse['verse']}. {verse['text']} "
+                formatted_text += f"{verse['text']} "
+
             return formatted_text.strip()
         else:
             print(f"API Error: {response.status_code}")

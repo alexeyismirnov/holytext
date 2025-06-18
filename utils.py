@@ -2,7 +2,7 @@ import streamlit as st
 from typing import Dict, List, Optional, Tuple
 from constants import ORTHODOX_TRANSLATION_PROMPT, BIBLE_ANNOTATION_PROMPT
 from orthodox_dictionary import OrthodoxDictionary
-from bible_service import process_footnotes
+from bible_service import process_footnotes, extract_bible_references, parse_bible_reference, fetch_bible_text
 
 # Initialize the Orthodox Dictionary handler
 orthodox_dict = OrthodoxDictionary(dict_path="dict.jsonl", min_score=65)
@@ -12,7 +12,7 @@ import streamlit as st
 from typing import Dict, List, Optional, Tuple
 from constants import ORTHODOX_TRANSLATION_PROMPT, BIBLE_ANNOTATION_PROMPT
 from orthodox_dictionary import OrthodoxDictionary
-from bible_service import process_footnotes
+from bible_service import process_footnotes, extract_bible_references, parse_bible_reference, fetch_bible_text
 
 # Initialize the Orthodox Dictionary handler
 orthodox_dict = OrthodoxDictionary(dict_path="dict.jsonl", min_score=65)
@@ -56,6 +56,35 @@ def extract_command_and_text(user_message: str, command_prefix: str) -> Tuple[st
         text_to_process = user_message[len(command_prefix):].strip()
     
     return command_part, text_to_process
+
+def get_bible_quote_translations(text: str) -> List[Tuple[str, str]]:
+    """
+    Extract Bible references from text and fetch their translations in both English and Chinese.
+    
+    Args:
+        text: Text containing Bible references in parentheses
+        
+    Returns:
+        List of tuples containing (english_quote, chinese_quote)
+    """
+    bible_translations = []
+    references = extract_bible_references(text)
+    
+    for reference, _ in references:
+        parsed = parse_bible_reference(reference)
+        if parsed:
+            book_name, where_expr = parsed
+            
+            # Fetch English version
+            english_text = fetch_bible_text(book_name, where_expr, lang="en")
+            
+            # Fetch Chinese version
+            chinese_text = fetch_bible_text(book_name, where_expr, lang="hk")
+            
+            if english_text and chinese_text:
+                bible_translations.append((english_text, chinese_text))
+    
+    return bible_translations
 
 # Enhanced prompt engineering function for Orthodox Christian translation and Bible annotation
 def process_user_message(user_message: str, messages: List[Dict], orthodox_enabled: bool) -> tuple[List[Dict], str, str]:
@@ -131,6 +160,24 @@ def process_user_message(user_message: str, messages: List[Dict], orthodox_enabl
             # Create dictionary prompt section if matches were found
             dictionary_prompt = orthodox_dict.create_dictionary_prompt(matching_terms)
             
+            # NEW: Check for Bible references in the text and add their translations to the dictionary
+            bible_translations = get_bible_quote_translations(text_to_translate)
+            
+            # If Bible translations were found, add them to the dictionary prompt
+            if bible_translations:
+                if not dictionary_prompt:
+                    dictionary_prompt = "\nWhen translating the text, you MUST use the following dictionary of terms:\n\n"
+                else:
+                    dictionary_prompt += "\nAdditionally, use these translations for Bible quotes found in the text:\n\n"
+                
+                for english_quote, chinese_quote in bible_translations:
+                    # Format the Bible quotes as dictionary entries
+                    # Truncate long quotes if needed to keep the prompt manageable
+                    eng_quote = english_quote[:150] + "..." if len(english_quote) > 150 else english_quote
+                    dictionary_prompt += f"- \"{eng_quote}\": \"{chinese_quote}\"\n"
+                
+                dictionary_prompt += "\nThese translations for Bible quotes are authoritative and must be used exactly as provided.\n"
+            
             # Create the enhanced message with Orthodox Christian context and dictionary
             processed_query = f"{ORTHODOX_TRANSLATION_PROMPT}{dictionary_prompt}\n\n" + "Please translate the following text:\n\n" + text_to_translate
   
@@ -150,6 +197,24 @@ def process_user_message(user_message: str, messages: List[Dict], orthodox_enabl
             # Even in standard mode, we can use the dictionary for consistent terminology
             matching_terms = orthodox_dict.find_matching_terms(text_to_translate)
             dictionary_prompt = orthodox_dict.create_dictionary_prompt(matching_terms)
+            
+            # NEW: Check for Bible references in the text and add their translations to the dictionary
+            bible_translations = get_bible_quote_translations(text_to_translate)
+            
+            # If Bible translations were found, add them to the dictionary prompt
+            if bible_translations:
+                if not dictionary_prompt:
+                    dictionary_prompt = "\nWhen translating the text, you MUST use the following dictionary of terms:\n\n"
+                else:
+                    dictionary_prompt += "\nAdditionally, use these translations for Bible quotes found in the text:\n\n"
+                
+                for english_quote, chinese_quote in bible_translations:
+                    # Format the Bible quotes as dictionary entries
+                    # Truncate long quotes if needed to keep the prompt manageable
+                    eng_quote = english_quote[:150] + "..." if len(english_quote) > 150 else english_quote
+                    dictionary_prompt += f"- \"{eng_quote}\": \"{chinese_quote}\"\n"
+                
+                dictionary_prompt += "\nThese translations for Bible quotes are authoritative and must be used exactly as provided.\n"
             
             # For standard translation, add dictionary but not the Orthodox context
             if dictionary_prompt:
