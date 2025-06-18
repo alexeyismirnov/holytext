@@ -2,6 +2,7 @@ import streamlit as st
 from typing import Dict, List, Optional, Tuple
 from constants import ORTHODOX_TRANSLATION_PROMPT, BIBLE_ANNOTATION_PROMPT
 from orthodox_dictionary import OrthodoxDictionary
+from bible_service import process_footnotes
 
 # Initialize the Orthodox Dictionary handler
 orthodox_dict = OrthodoxDictionary(dict_path="dict.jsonl", min_score=65)
@@ -10,7 +11,7 @@ orthodox_dict = OrthodoxDictionary(dict_path="dict.jsonl", min_score=65)
 def process_user_message(user_message: str, messages: List[Dict], orthodox_enabled: bool) -> tuple[List[Dict], str, str]:
     """
     Process user message through prompt engineering.
-    Detects special commands (translate, annotate) and applies appropriate context.
+    Detects special commands (translate, annotate, add footnotes) and applies appropriate context.
     Commands are only recognized when they appear at the beginning of the message.
     Returns: (processed_messages, command_type, processed_query)
     """
@@ -20,8 +21,37 @@ def process_user_message(user_message: str, messages: List[Dict], orthodox_enabl
     
     user_message_lower = user_message.lower().strip()
     
+    # Check for "add footnotes" command (only at the beginning of the message)
+    if user_message_lower.startswith("add footnotes"):
+        command_type = "add_footnotes"
+        
+        # Extract the text to add footnotes to (everything after "add footnotes")
+        text_to_process = user_message[13:].strip()  # Remove "add footnotes " (13 chars)
+        
+        if text_to_process:
+            # Process the text to extract Bible references and fetch their content
+            try:
+                processed_text, footnotes = process_footnotes(text_to_process)
+                
+                # Create a prompt for the AI to format the text with footnotes
+                footnotes_prompt = "Please format the following text with Bible footnotes. Add the footnote text at the end of the document, with each footnote on a new line. The footnotes have already been marked with [n] in the text.\n\n"
+                footnotes_prompt += processed_text + "\n\n"
+                footnotes_prompt += "Footnotes:\n"
+                
+                for i, footnote in enumerate(footnotes):
+                    footnotes_prompt += f"[{i+1}] {footnote['reference']}: {footnote['text']}\n"
+                
+                processed_query = footnotes_prompt
+            except Exception as e:
+                processed_query = f"I encountered an error processing the Bible references: {str(e)}. Please make sure the text contains valid Bible references in parentheses, such as (John 3:16) or (Romans 8:28-30)."
+        else:
+            # If no text after "add footnotes", ask for clarification
+            processed_query = "Please provide the annotated text you would like to add Bible footnotes to. The text should already contain Bible references in parentheses, such as (John 3:16) or (Romans 8:28-30)."
+        
+        processed_messages.append({"role": "user", "content": processed_query})
+    
     # Check for "annotate" command (only at the beginning of the message)
-    if user_message_lower.startswith("annotate"):
+    elif user_message_lower.startswith("annotate"):
         command_type = "annotate"
         
         # Extract the text to be annotated (everything after "annotate")
@@ -123,3 +153,5 @@ def show_command_indicator(command_type: str, orthodox_enabled: bool = False):
         st.info("🔄 **Orthodox Translation Mode**: Using specialized Orthodox Christian translation context")
     elif command_type == "translate_standard":
         st.info("ℹ️ **Standard Translation**: Orthodox Christian context is disabled. Enable it in settings for specialized theological translations.")
+    elif command_type == "add_footnotes":
+        st.info("📝 **Bible Footnotes Mode**: Adding full Bible text as footnotes for each reference")

@@ -102,6 +102,9 @@ COMMAND_HELP_TEXT = """
 
 **annotate** [text]  
 *Find & reference Bible quotes*
+
+**add footnotes** [annotated text]  
+*Add Bible text as footnotes*
 """
 
 # Error and info messages
