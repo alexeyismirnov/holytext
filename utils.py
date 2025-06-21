@@ -172,9 +172,7 @@ def process_user_message(user_message: str, messages: List[Dict], orthodox_enabl
                 
                 for english_quote, chinese_quote in bible_translations:
                     # Format the Bible quotes as dictionary entries
-                    # Truncate long quotes if needed to keep the prompt manageable
-                    eng_quote = english_quote[:150] + "..." if len(english_quote) > 150 else english_quote
-                    dictionary_prompt += f"- \"{eng_quote}\": \"{chinese_quote}\"\n"
+                    dictionary_prompt += f"- \"{english_quote}\": \"{chinese_quote}\"\n"
                 
                 dictionary_prompt += "\nThese translations for Bible quotes are authoritative and must be used exactly as provided.\n"
             
