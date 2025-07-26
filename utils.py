@@ -3,19 +3,10 @@ from typing import Dict, List, Optional, Tuple
 from constants import ORTHODOX_TRANSLATION_PROMPT, BIBLE_ANNOTATION_PROMPT
 from orthodox_dictionary import OrthodoxDictionary
 from bible_service import process_footnotes, extract_bible_references, parse_bible_reference, fetch_bible_text
-
-# Initialize the Orthodox Dictionary handler
-orthodox_dict = OrthodoxDictionary(dict_path="dict.jsonl", min_score=65)
-
 import re
-import streamlit as st
-from typing import Dict, List, Optional, Tuple
-from constants import ORTHODOX_TRANSLATION_PROMPT, BIBLE_ANNOTATION_PROMPT
-from orthodox_dictionary import OrthodoxDictionary
-from bible_service import process_footnotes, extract_bible_references, parse_bible_reference, fetch_bible_text
 
-# Initialize the Orthodox Dictionary handler
-orthodox_dict = OrthodoxDictionary(dict_path="dict.jsonl", min_score=65)
+# Initialize the Orthodox Dictionary handler with the directory path
+orthodox_dict = OrthodoxDictionary(dict_dir="dict", min_score=65)
 
 def extract_command_and_text(user_message: str, command_prefix: str) -> Tuple[str, str]:
     """

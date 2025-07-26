@@ -4,48 +4,65 @@ Loads and processes the specialized Orthodox Christian terminology dictionary
 """
 
 import json
+import os
+import glob
 from typing import Dict, List, Set, Tuple
 from pathlib import Path
 import re
 from fuzzy_match import AdvancedFuzzyMatcher, fuzz
 
 class OrthodoxDictionary:
-    def __init__(self, dict_path: str = "dict.jsonl", min_score: int = 75):
+    def __init__(self, dict_dir: str = "dict", min_score: int = 75):
         """
         Initialize the Orthodox dictionary handler
         
         Args:
-            dict_path: Path to the dictionary JSONL file
+            dict_dir: Directory containing dictionary JSONL files
             min_score: Minimum score threshold for fuzzy matching (0-100)
         """
-        self.dict_path = dict_path
-        self.terms_dict = self._load_dictionary()
+        self.dict_dir = dict_dir
+        self.terms_dict = self._load_dictionaries()
         self.min_score = min_score
         self.fuzzy_matcher = AdvancedFuzzyMatcher(min_score=min_score)
         
-    def _load_dictionary(self) -> Dict[str, str]:
-        """Load the dictionary from JSONL file"""
+    def _load_dictionaries(self) -> Dict[str, str]:
+        """Load all dictionaries from JSONL files in the dict directory"""
         terms_dict = {}
         
         try:
-            with open(self.dict_path, 'r', encoding='utf-8') as f:
-                for line in f:
-                    if line.strip():
-                        try:
-                            term_entry = json.loads(line)
-                            # Each line is a single key-value pair
-                            for english_term, chinese_translation in term_entry.items():
-                                # Strip any extra whitespace
-                                english_term = english_term.strip()
-                                chinese_translation = chinese_translation.strip()
-                                terms_dict[english_term] = chinese_translation
-                        except json.JSONDecodeError:
-                            # Skip invalid lines
-                            continue
+            # Get all .jsonl files in the dict directory
+            dict_files = glob.glob(os.path.join(self.dict_dir, "*.jsonl"))
             
+            if not dict_files:
+                print(f"Warning: No .jsonl files found in {self.dict_dir} directory")
+                return {}
+            
+            # Load each dictionary file
+            for dict_file in dict_files:
+                print(f"Loading dictionary file: {dict_file}")
+                try:
+                    with open(dict_file, 'r', encoding='utf-8') as f:
+                        for line in f:
+                            if line.strip():
+                                try:
+                                    term_entry = json.loads(line)
+                                    # Each line is a single key-value pair
+                                    for english_term, chinese_translation in term_entry.items():
+                                        # Strip any extra whitespace
+                                        english_term = english_term.strip()
+                                        chinese_translation = chinese_translation.strip()
+                                        terms_dict[english_term] = chinese_translation
+                                except json.JSONDecodeError:
+                                    # Skip invalid lines
+                                    continue
+                except Exception as e:
+                    print(f"Error loading dictionary file {dict_file}: {e}")
+                    continue
+            
+            print(f"Loaded {len(terms_dict)} terms from {len(dict_files)} dictionary files")
             return terms_dict
         except Exception as e:
-            print(f"Error loading dictionary: {e}")
+            print(f"Error loading dictionaries: {e}")
             return {}
     
     def get_all_english_terms(self) -> List[str]:
