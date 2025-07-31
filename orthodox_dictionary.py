@@ -10,9 +10,10 @@ from typing import Dict, List, Set, Tuple
 from pathlib import Path
 import re
 from fuzzy_match import AdvancedFuzzyMatcher, fuzz
+import streamlit as st
 
 class OrthodoxDictionary:
-    def __init__(self, dict_dir: str = "dict", min_score: int = 75):
+    def __init__(self, dict_dir: str = "dict", min_score: int = 65):
         """
         Initialize the Orthodox dictionary handler
         
@@ -22,8 +23,14 @@ class OrthodoxDictionary:
         """
         self.dict_dir = dict_dir
         self.terms_dict = self._load_dictionaries()
-        self.min_score = min_score
-        self.fuzzy_matcher = AdvancedFuzzyMatcher(min_score=min_score)
+        
+        # Use user-defined min_score from session state if available
+        if "orthodox_min_score" in st.session_state:
+            self.min_score = st.session_state.orthodox_min_score
+        else:
+            self.min_score = min_score
+            
+        self.fuzzy_matcher = AdvancedFuzzyMatcher(min_score=self.min_score)
         
     def _load_dictionaries(self) -> Dict[str, str]:
         """Load all dictionaries from JSONL files in the dict directory"""
@@ -76,6 +83,11 @@ class OrthodoxDictionary:
         Returns:
             List of tuples containing (english_term, chinese_translation, match_score)
         """
+        # Update min_score from session state if it has changed
+        if "orthodox_min_score" in st.session_state:
+            self.min_score = st.session_state.orthodox_min_score
+            self.fuzzy_matcher.min_score = self.min_score
+            
         matches = []
         english_terms = self.get_all_english_terms()
         
@@ -113,7 +125,7 @@ class OrthodoxDictionary:
             # Use token_set_ratio which is good for finding terms within longer text
             score = fuzz.token_set_ratio(term.lower(), text.lower())
             
-            if score >= self.min_score:
+            if score >= self.min_score:  # Use the current min_score value
                 matches.append((term, self.terms_dict[term], float(score)))
         
         # Remove duplicates (keep highest score)

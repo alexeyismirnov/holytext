@@ -30,13 +30,11 @@
 {"The Passover lamb":"逾越節的祭羊"}
 {"The Gates of Hell":"地獄之門"}
 {"Adam":"亞當"}
-{"Saint Alexander of Neva":"聖亞歷山大涅夫斯基"}
 {"Alleluia":"阿利路伊亚"}
 {"acolyte":"助祭"}
 {"Lord Jesus Christ ":"主耶穌基督"}
 {"Amen":"阿們"}
 {"Anathema":"革出教門"}
-{"Saint Andrei Rublev ":"聖安德烈•魯布廖夫"}
 {"Angel ":"天使"}
 {"Angelic schema ":"天使般生活者"}
 {"Anthony the Great ":"聖大安托尼"}
@@ -49,7 +47,6 @@
 {"Archdeacon":"總輔祭"}
 {"Archimandrite ":"修士大司祭"}
 {"ascetic way of life":"苦修生活"}
-{"Athanasius the Great":"聖大阿塔納西"}
 {"Baptistery":"施洗所"}
 {"Baptisterion":"洗禮堂"}
 {"Batyushka":"神父"}
@@ -68,7 +65,6 @@
 {"Passionlessness ":"不動情"}
 {"Treasury of good things":"完善之寶藏者"}
 {"faithful":"正信者"}
-{"Annunciation of the Most Holy Mother of God ":"聖母領報"}
 {"The Cathedral church of the Annunciation ":"聖母領報大教堂"}
 {"pious":"虔誠的"}
 {"Gratitude":"感恩"}
@@ -105,7 +101,6 @@
 {"Theophany ":"主顯節"}
 {"Divine Liturgy ":"神聖禮拜"}
 {"Ailing":"患病的人"}
-{"Boris and Gleb ":"鮑里斯與格里伯"}
 {"Spiritual struggle":"精神戰鬥"}
 {"Heavenly Queen":"天國的女王"}
 {"Royal Doors":"正門"}
@@ -155,13 +150,10 @@
 {"«Reigning» Icon of the Mother of God":"«統治天下的»聖母聖像"}
 {"Tithe":"什一稅"}
 {"Dikirion":"雙燭架"}
-{"Dimitry Donskoy":"迪彌特里•頓斯科伊"}
 {"right-believing prince":"正信之王子"}
-{"Demetrius of Thessalonica":"德撒洛尼基的迪彌特里"}
 {"Penny":"第那裡"}
 {"Diptych":"雙連聖像"}
 {"Discos":"聖盤"}
-{"One of the sacred vessels - the plate on which the Lamb is placed during the Liturgy":"聖器之一 –事奉聖禮中放置祭餅之盤"}
 {"Dogmatics":"教義學"}
 {"Dogmatic Theology":"教義神學"}
 {"House of God":"上帝的殿宇"}
@@ -176,7 +168,6 @@
 {"Uncreated Light":"上帝之光"}
 {"Filioque":"«和子»"}
 {"Phelonion ":"祭披"}
-{"Saint Theophan the Recluse":"閉關者聖德奧梵"}
 {"Thessalonica":"帖撒羅尼迦"}
 {"Philemon":"肥利門"}
 {"Philip":"肥力"}
@@ -191,6 +182,7 @@
 {"Antipascha":"復活節後之第一個禮拜天"}
 {"Thomas Sunday ":"多馬主日"}
 {"Photios":"聖弗提"}
+{"Fresco":"壁畫"}
 {"Astrologer":"星相家"}
 {"Hypocrisy":"僞善行為"}
 {"Laudatory hymn":"讚美歌"}
@@ -200,7 +192,7 @@
 {"one of the nine angelic orders":"九品天使中的一個品級"}
 {"Cherubic hymn":"赫儒文之歌"}
 {"Great entrance":"大聖入禮儀"}
-{"ordination":"按手儀式"}
+{"Ordination":"按手儀式"}
 {"Chiton":"長襯衫"}
 {"Khlyst":"鞭苔派"}
 {"Procession of the Cross":"十字行"}
@@ -212,3 +204,109 @@
 {"Apostate":"背叛基督者"}
 {"defamation":"咒罵"}
 {"Blasphemy":"辱駡"}
+{"Archangel Gabriel":"天使長加百利"}
+{"Galatians":"加拉太"}
+{"Galilee":"加利利"}
+{"Gehenna valley":"革恩納山谷"}
+{"Garden of Gethsemane":"客西馬尼園"}
+{"Hymnography":"聖歌學"}
+{"dome":"圓蓋"}
+{"Octoechos":"八音頌唱集"}
+{"Tone":"曲調"}
+{"Anger":"憤怒"}
+{"Fasting before receiving Holy Communion":"領受聖餐前齋戒"}
+{"Observe the fast":"守齋戒"}
+{"Gog and Magog":"歌革和瑪各"}
+{"Liturgical year":"一年之內的禮拜"}
+{"Golgotha":"各各地"}
+{"Gomorrah":"娥摩拉"}
+{"Persecution":"迫害"}
+{"Pride":"驕傲"}
+{"High place":"祭檯後方的座位"}
+{"Heavenly":"天上的"}
+{"Lord":"主"}
+{"Lord have mercy":"求主憐憫"}
+{"Lord's prayer":"主禱文"}
+{"The Fall of Adam":"亞當墮落"}
+{"Holy Sepulchre":"主的墳墓"}
+{"Holy sponge":"聖海絨"}
+{"Jairus":"睚魯"}
+{"Jacob":"雅各"}
+{"Japheth":"雅弗"}
+{"Iveron Icon of the Mother of God":"伊維隆聖母像"}
+{"Hebrew":"希伯來文"}
+{"Hegumen":"修道院院長"}
+{"Idol":"偶像"}
+{"Idolater":"偶像崇拜者"}
+{"Jehovah":"耶和華"}
+{"Ezekiel":"以西結"}
+{"Jesuit":"耶穌會會士"}
+{"Hierarch":"主教"}
+{"Priest":"司祭"}
+{"Jeremiah":"耶利米"}
+{"Jericho":"耶利哥城"}
+{"Hierodeacon":"修士輔祭"}
+{"Hieromonk":"修士司祭"}
+{"Jerusalem":"耶路撒冷"}
+{"Cherubic hymn":"赫儒文之歌"}
+{"Deliverer":"救主"}
+{"Savior":"救世主"}
+{"deliverance":"擺脫"}
+{"Your chosen flock":"禰特選之群"}
+{"Expulsion of Adam":"亞當被驅出樂圓"}
+{"Exorcism":"驅魔"}
+{"Typika":"典式課"}
+{"Israel":"以色列"}
+{"Joshua":"納維之子伊穌斯"}
+{"Jesus Prayer":"耶穌禱文"}
+{"Icon":"聖像"}
+{"Theology of icon":"聖像神學"}
+{"Iconoclasm":"聖像破壞運動"}
+{"Iconoclasts":"反對聖像派"}
+{"Iconography":"聖像研究"}
+{"Economy of salvation":"救恩工程"}
+{"Icon painter":"聖像畫家"}
+{"Icon painting studio":"聖像畫坊"}
+{"Veneration of icons":"聖像敬奉"}
+{"Iconostas":"聖像壁"}
+{"Ikos":"長讚美歌"}
+{"Name Day":"命名日"}
+{"Hallowed be Thy name":"願人都尊禰的名為聖"}
+{"Monasticism":"修士生活"}
+{"Joachim and Anna":"雅敬與安娜"}
+{"John the Theologian":"神學家約翰"}
+{"Job":"約伯"}
+{"Joel":"約珥"}
+{"Jonah":"約拿"}
+{"Jordan":"約旦河"}
+{"Joseph the Betrothed ":"«未婚夫»約瑟 "}
+{"Josephites":"約熙福派"}
+{"Subdeacon":"副輔祭"}
+{"Hypostasis":"位格"}
+{"Irmologion":"聖頌典首節集"}
+{"Irmos":"首節"}
+{"Herod":"希律"}
+{"Herodias":"希羅底"}
+{"Isaac":"以撒"}
+{"forefather":"聖祖"}
+{"St. Isaac Cathedral":"以撒/伊撒克大教堂"}
+{"Esau":"以掃"}
+{"Isaiah":"以賽亞"}
+{"Hesychasm":"靜修修持"}
+{"Hesychast":"緘默隱修士"}
+{"Judas Iscariot":"猶大加略人"}
+{"Redemption of sins":"贖罪"}
+{"Tempt":"誘惑"}
+{"probation":"考試"}
+{"temptation":"試探"}
+{"Islam":"伊斯蘭教"}
+{"Confessor":"宣信者"}
+{"Confession of faith":"信仰表白"}
+{"Confession":"懺悔聖事"}
+{"Give up the ghost":"斷氣"}
+{"Truth":"真理"}
+{"Corruption":"朽"}
+{"Healing":"治癒"}
+{"Judaism":"猶太教"}
+{"Judas the traitor":"叛徒猶大"}
+{"Jew":"猶太人"}

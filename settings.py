@@ -50,6 +50,32 @@ def clear_api_key_file():
 
 def show_settings():
     """Display and handle all settings in the sidebar"""
+    # Add JavaScript to load min_score from localStorage
+    st.markdown(
+        """
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const storedMinScore = localStorage.getItem('orthodox_min_score');
+                if (storedMinScore) {
+                    // Use Streamlit's setComponentValue to update the session state
+                    window.parent.postMessage({
+                        type: "streamlit:setComponentValue",
+                        value: parseInt(storedMinScore),
+                        dataType: "integer",
+                        key: "orthodox_min_score_from_storage"
+                    }, "*");
+                    console.log('Loaded min_score from localStorage:', storedMinScore);
+                }
+            });
+        </script>
+        """,
+        unsafe_allow_html=True
+    )
+    
+    # Check if we received a value from localStorage via the component
+    if "orthodox_min_score_from_storage" in st.session_state:
+        st.session_state.orthodox_min_score = st.session_state.orthodox_min_score_from_storage
+    
     st.sidebar.header("⚙️ Settings")
     
     # Show if API key was loaded from file
@@ -160,6 +186,30 @@ def show_arena_settings():
         st.session_state.orthodox_translation_enabled_b = orthodox_enabled_b
         st.rerun()
     
+    # Add Orthodox Dictionary Min Score Slider (shared between both models)
+    min_score = st.sidebar.slider(
+        "🔍 Orthodox Term Match Threshold",
+        min_value=50,
+        max_value=95,
+        value=st.session_state.orthodox_min_score,
+        step=5,
+        help="Minimum score threshold for fuzzy matching of Orthodox terms (lower = more matches but less precise)"
+    )
+    
+    if min_score != st.session_state.orthodox_min_score:
+        st.session_state.orthodox_min_score = min_score
+        # Add JavaScript to save to localStorage
+        st.markdown(
+            f"""
+            <script>
+                localStorage.setItem('orthodox_min_score', '{min_score}');
+                console.log('Saved min_score: {min_score}');
+            </script>
+            """,
+            unsafe_allow_html=True
+        )
+        st.rerun()
+
 def show_basic_settings():
     """Show settings for basic mode"""
     # Basic mode settings
@@ -184,6 +234,30 @@ def show_basic_settings():
         st.session_state.orthodox_translation_enabled = orthodox_enabled
         st.rerun()
     
+    # Add Orthodox Dictionary Min Score Slider
+    min_score = st.sidebar.slider(
+        "🔍 Orthodox Term Match Threshold",
+        min_value=50,
+        max_value=95,
+        value=st.session_state.orthodox_min_score,
+        step=5,
+        help="Minimum score threshold for fuzzy matching of Orthodox terms (lower = more matches but less precise)"
+    )
+    
+    if min_score != st.session_state.orthodox_min_score:
+        st.session_state.orthodox_min_score = min_score
+        # Add JavaScript to save to localStorage
+        st.markdown(
+            f"""
+            <script>
+                localStorage.setItem('orthodox_min_score', '{min_score}');
+                console.log('Saved min_score: {min_score}');
+            </script>
+            """,
+            unsafe_allow_html=True
+        )
+        st.rerun()
+    
     # Debug Mode Toggle
     debug_enabled = st.sidebar.toggle(
         "🐛 Debug Mode",
@@ -194,7 +268,6 @@ def show_basic_settings():
     if debug_enabled != st.session_state.debug_mode:
         st.session_state.debug_mode = debug_enabled
         st.rerun()
-    
 
 def show_command_help():
     """Show help information about available commands"""

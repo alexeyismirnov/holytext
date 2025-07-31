@@ -49,6 +49,8 @@ def initialize_session_state():
         st.session_state.arena_mode = False  # Default is basic mode
     if "key_loaded_from_file" not in st.session_state:
         st.session_state.key_loaded_from_file = False
+    if "orthodox_min_score" not in st.session_state:
+        st.session_state.orthodox_min_score = 65  
 
 # Arena mode chat interface
 def arena_chat():
