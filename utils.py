@@ -151,7 +151,7 @@ def process_user_message(user_message: str, messages: List[Dict], orthodox_enabl
             # Create dictionary prompt section if matches were found
             dictionary_prompt = orthodox_dict.create_dictionary_prompt(matching_terms)
             
-            # NEW: Check for Bible references in the text and add their translations to the dictionary
+            # Check for Bible references in the text and add their translations to the dictionary
             bible_translations = get_bible_quote_translations(text_to_translate)
             
             # If Bible translations were found, add them to the dictionary prompt

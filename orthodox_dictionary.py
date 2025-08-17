@@ -6,7 +6,7 @@ Loads and processes the specialized Orthodox Christian terminology dictionary
 import json
 import os
 import glob
-from typing import Dict, List, Set, Tuple
+from typing import Dict, List, Set, Tuple, Any
 from pathlib import Path
 import re
 from fuzzy_match import AdvancedFuzzyMatcher, fuzz
@@ -32,8 +32,13 @@ class OrthodoxDictionary:
             
         self.fuzzy_matcher = AdvancedFuzzyMatcher(min_score=self.min_score)
         
-    def _load_dictionaries(self) -> Dict[str, str]:
-        """Load all dictionaries from JSONL files in the dict directory"""
+    def _load_dictionaries(self) -> Dict[str, List[str]]:
+        """
+        Load all dictionaries from JSONL files in the dict directory
+        
+        Returns:
+            Dictionary mapping English terms to lists of Chinese translations
+        """
         terms_dict = {}
         
         try:
@@ -58,7 +63,14 @@ class OrthodoxDictionary:
                                         # Strip any extra whitespace
                                         english_term = english_term.strip()
                                         chinese_translation = chinese_translation.strip()
-                                        terms_dict[english_term] = chinese_translation
+                                        
+                                        # Store multiple translations for the same term
+                                        if english_term not in terms_dict:
+                                            terms_dict[english_term] = [chinese_translation]
+                                        else:
+                                            # Only add if this translation is not already in the list
+                                            if chinese_translation not in terms_dict[english_term]:
+                                                terms_dict[english_term].append(chinese_translation)
                                 except json.JSONDecodeError:
                                     # Skip invalid lines
                                     continue
@@ -66,7 +78,9 @@ class OrthodoxDictionary:
                     print(f"Error loading dictionary file {dict_file}: {e}")
                     continue
             
-            print(f"Loaded {len(terms_dict)} terms from {len(dict_files)} dictionary files")
+            term_count = len(terms_dict)
+            translation_count = sum(len(translations) for translations in terms_dict.values())
+            print(f"Loaded {term_count} terms with {translation_count} translations from {len(dict_files)} dictionary files")
             return terms_dict
         except Exception as e:
             print(f"Error loading dictionaries: {e}")
@@ -76,12 +90,12 @@ class OrthodoxDictionary:
         """Get all English terms from the dictionary"""
         return list(self.terms_dict.keys())
     
-    def find_matching_terms(self, text: str) -> List[Tuple[str, str, float]]:
+    def find_matching_terms(self, text: str) -> List[Tuple[str, List[str], float]]:
         """
         Find Orthodox terms in the input text using direct and fuzzy matching
         
         Returns:
-            List of tuples containing (english_term, chinese_translation, match_score)
+            List of tuples containing (english_term, list_of_chinese_translations, match_score)
         """
         # Update min_score from session state if it has changed
         if "orthodox_min_score" in st.session_state:
@@ -130,9 +144,9 @@ class OrthodoxDictionary:
         
         # Remove duplicates (keep highest score)
         unique_matches = {}
-        for term, translation, score in matches:
+        for term, translations, score in matches:
             if term not in unique_matches or score > unique_matches[term][1]:
-                unique_matches[term] = (translation, score)
+                unique_matches[term] = (translations, score)
         
         # Convert back to list format
         result = [(term, trans, score) for term, (trans, score) in unique_matches.items()]
@@ -142,12 +156,12 @@ class OrthodoxDictionary:
         
         return result
     
-    def create_dictionary_prompt(self, matches: List[Tuple[str, str, float]]) -> str:
+    def create_dictionary_prompt(self, matches: List[Tuple[str, List[str], float]]) -> str:
         """
         Create a prompt section with the dictionary terms
         
         Args:
-            matches: List of matched terms (english_term, chinese_translation, score)
+            matches: List of matched terms (english_term, list_of_chinese_translations, score)
         
         Returns:
             Formatted prompt section with dictionary terms
@@ -158,11 +172,17 @@ class OrthodoxDictionary:
         # Create the dictionary prompt
         prompt = "\nWhen translating the text, you MUST use the following dictionary of special Orthodox Christian terms:\n\n"
         
-        # Add each term with its translation
-        for english, chinese, _ in matches:
-            prompt += f"- \"{english}\": \"{chinese}\"\n"
+        # Add each term with all its translations
+        for english, chinese_translations, _ in matches:
+            if len(chinese_translations) == 1:
+                prompt += f"- \"{english}\": \"{chinese_translations[0]}\"\n"
+            else:
+                # Format multiple translations
+                translations_str = "\", \"".join(chinese_translations)
+                prompt += f"- \"{english}\": [\"{translations_str}\"] (choose the most appropriate translation based on context)\n"
         
-        prompt += "\nThese translations for specialized Orthodox terms are authoritative and must be used exactly as provided.\n"
+        prompt += "\nThese translations for specialized Orthodox terms are authoritative and must be used exactly as provided. "
+        prompt += "When multiple translations are available for a term, select the most appropriate one based on the context.\n"
         
         return prompt
 
@@ -175,8 +195,8 @@ if __name__ == "__main__":
     prompt_section = orthodox_dict.create_dictionary_prompt(matches)
     
     print(f"Found {len(matches)} matching terms:")
-    for term, translation, score in matches:
-        print(f"  - {term} → {translation} (score: {score:.1f})")
+    for term, translations, score in matches:
+        print(f"  - {term} → {translations} (score: {score:.1f})")
     
     print("\nDictionary Prompt Section:")
     print(prompt_section)

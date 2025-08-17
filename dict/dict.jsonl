@@ -21,14 +21,14 @@
 {"Habakkuk":"哈巴谷"}
 {"Obadiah":"俄巴底亞"}
 {"Abel":"亞伯"}
-{"The seed of Abraham":"亞伯拉罕的子孫"}
+{"seed of Abraham":"亞伯拉罕的子孫"}
 {"Abraham ":"亞伯拉罕"}
 {"In the bosom of Abraham":"於亞伯拉罕懷內"}
 {"Autocephaly":"獨立教會"}
-{"The Lamb of God":"上帝的羔羊"}
+{"Lamb of God":"上帝的羔羊"}
 {"Hades":"地獄"}
-{"The Passover lamb":"逾越節的祭羊"}
-{"The Gates of Hell":"地獄之門"}
+{"Passover lamb":"逾越節的祭羊"}
+{"Gates of Hell":"地獄之門"}
 {"Adam":"亞當"}
 {"Alleluia":"阿利路伊亚"}
 {"acolyte":"助祭"}
@@ -40,7 +40,7 @@
 {"Anthony the Great ":"聖大安托尼"}
 {"Apologete":"護教者"}
 {"Apologetics ":"護教學"}
-{"The Epistles of the Apostles":"使徒書信"}
+{"Epistles of the Apostles":"使徒書信"}
 {"Apostolic Church":"使徒之教會"}
 {"Aramaic":"阿拉美"}
 {"Arianism ":"阿里烏斯異端"}
@@ -65,14 +65,14 @@
 {"Passionlessness ":"不動情"}
 {"Treasury of good things":"完善之寶藏者"}
 {"faithful":"正信者"}
-{"The Cathedral church of the Annunciation ":"聖母領報大教堂"}
+{"Cathedral church of the Annunciation ":"聖母領報大教堂"}
 {"pious":"虔誠的"}
 {"Gratitude":"感恩"}
 {"Grace":"恩典"}
 {"To attain grace":"領受恩典"}
 {"Full of Grace Mary":"充滿恩寵的瑪利亞"}
 {"splendid":"壯麗"}
-{"the wise thief ":"明智的強盜"}
+{"wise thief ":"明智的強盜"}
 {"Blessing":"祝福"}
 {"Blessed art thou among women":"妳在婦女中受讚頌"}
 {"Piety ":"成德"}
@@ -80,7 +80,7 @@
 {"Bliss":"無上幸福"}
 {"righteous":"蒙福之人"}
 {"Fornication":"淫亂"}
-{"The Prodigal Son":"浪子"}
+{"Prodigal Son":"浪子"}
 {"God The Holy Spirit":"上帝聖靈"}
 {"God The Father":"上帝之父"}
 {"God The Word":"上帝之言"}
@@ -123,15 +123,14 @@
 {"Venerable":"可敬的"}
 {"Holy Cross":"十字聖架"}
 {"Prayer-beads":"珠子"}
-{"Iconostasis row":"在聖像壁上的某一列"}
+{"Iconostasis row":"聖像壁上的某一列"}
 {"Monastic rank":"各級修士"}
 {"gluttony":"貪食"}
-{"Church reader":"誦讀者"}
 {"Wonder":"靈蹟"}
 {"Miracle-worker":"顯行靈蹟者"}
 {"wonder-worker":"能顯靈者"}
 {"Miracle-working icon":"顯靈的聖像"}
-{"The Gospel of Mark":"馬克福音"}
+{"Gospel of Mark":"馬克福音"}
 {"The only begotten Son":"上帝的獨子"}
 {"Consubstantial with the Father":"與父同性同體"}
 {"Exapostilarion":"聖頌典後詞"}
@@ -159,7 +158,7 @@
 {"House of God":"上帝的殿宇"}
 {"House Church":"家庭教會"}
 {"Tree of Knowledge":"識善惡樹"}
-{"The Holy Spirit like a dove":"聖靈彷彿鴿子般"}
+{"Holy Spirit like a dove":"聖靈彷彿鴿子般"}
 {"Day of the Holy Spirit":"聖靈降臨節"}
 {"Theological Academy":"神學院"}
 {"Theological Seminary":"宗教學校"}
@@ -179,7 +178,6 @@
 {"Thomas":"多馬"}
 {"Foma":"多墨"}
 {"The first Sunday after the Pascha":"復活節後之第一個禮拜天"}
-{"Antipascha":"復活節後之第一個禮拜天"}
 {"Thomas Sunday ":"多馬主日"}
 {"Photios":"聖弗提"}
 {"Fresco":"壁畫"}
@@ -227,7 +225,7 @@
 {"Lord":"主"}
 {"Lord have mercy":"求主憐憫"}
 {"Lord's prayer":"主禱文"}
-{"The Fall of Adam":"亞當墮落"}
+{"Fall of Adam":"亞當墮落"}
 {"Holy Sepulchre":"主的墳墓"}
 {"Holy sponge":"聖海絨"}
 {"Jairus":"睚魯"}
@@ -302,7 +300,7 @@
 {"Islam":"伊斯蘭教"}
 {"Confessor":"宣信者"}
 {"Confession of faith":"信仰表白"}
-{"Confession":"懺悔聖事"}
+{"Confession":"懺悔"}
 {"Give up the ghost":"斷氣"}
 {"Truth":"真理"}
 {"Corruption":"朽"}
@@ -343,7 +341,7 @@
 {"Evening Rule":"晚課經"}
 {"Vespers":"暮時課"}
 {"Evening Hymn":"晚禱歌"}
-{"The Last Supper":"最後晚餐"}
+{"Last Supper":"最後晚餐"}
 {"Eternal life":"永生"}
 {"Eternal memory":"永恆的紀念"}
 {"Eternal rest":"安息"}
@@ -356,7 +354,7 @@
 {"Mistress":"君后"}
 {"Sackcloth":"粗毛長服"}
 {"unto ages of ages":"萬世、直到永遠"}
-{"The blessing of water":"祝聖水儀式"}
+{"blessing of water":"祝聖水儀式"}
 {"Return of the Prodigal Son":"浪子回頭"}
 {"Exclamation":"讚美的結束詞"}
 {"Aer":"聖蓋"}
@@ -382,7 +380,7 @@
 {"Orthodox Church":"東正教教會"}
 {"Churching":"受洗入教"}
 {"To become man":"成為人"}
-{"The enemy of human race":"人類中的敵人"}
+{"enemy of human race":"人類中的敵人"}
 {"Heal":"醫治"}
 {"Almighty":"全能的"}
 {"Universal ":"普世的"}
@@ -406,7 +404,7 @@
 {"Myrrhbearing Women":"攜香液女"}
 {"Sacrifice":"祭品"}
 {"Table of Oblation":"供桌"}
-{"the offering":"祭祀"}
+{"offering":"祭祀"}
 {"Life-giving Trinity":"施生命的聖三一"}
 {"Life-bearing fountain":"復活的泉源"}
 {"Life-giving":"賦予生命的"}
@@ -418,7 +416,7 @@
 {"New Testament":"新約"}
 {"Ten Commandments of God":"上帝十誡"}
 {"Law of Moses":"摩西律法"}
-{"The Beatitudes":"真福九端"}
+{"Beatitudes":"真福九端"}
 {"Commandment":"誡條"}
 {"Forbidden fruit":"禁果"}
 {"Recluse":"閉關者"}
@@ -439,5 +437,525 @@
 {"sign of the cross":"十字聖號"}
 {"The Sign icon of Mother of God":"«符印»聖母像"}
 {"Znamenny chant":"符譜頌調"}
-{"Golden Calf":"金牛犢"}
 {"Worship the Golden Calf":"崇拜金牛犢"}
+{"censer":"香爐"}
+{"to cense":"搖爐散香"}
+{"kazan icon of the mother of god":"喀山聖母聖像"}
+{"Treasurer":"司庫"}
+{"Caiaphas":"該亞法"}
+{"Cain":"該隱"}
+{"Kamilavka":"禮節帽"}
+{"Cana in Galilee":"加利利迦拿城"}
+{"Canon":"聖頌典"}
+{"canonical":"合乎教規的"}
+{"Canon":"教規"}
+{"Canonarch":"領唱者"}
+{"Canonization":"封聖"}
+{"Canonized":"被宣聖的"}
+{"punish":"懲罰"}
+{"katavasia ":"末節"}
+{"Catechism":"教義問答"}
+{"Catholicism":"天主教"}
+{"bishop's seat":"主教的所在地"}
+{"Kathisma":"座誦詞"}
+{"Repent":"悔過"}
+{"Cellarer":"管理修會財務的修士"}
+{"Cell Attendant":"幫助修士司祭的人員"}
+{"Cell":"修道小屋"}
+{"Caesar":"凱撒"}
+{"Kievan Rus":"基輔羅斯"}
+{"Kiot":"神龕"}
+{"Cyrillic alphabet":"基里爾字母"}
+{"Cemetery":"墓地"}
+{"Libel":"誣告"}
+{"Clergy":"全體教士"}
+{"Cleric":"神職人員"}
+{"Kliros":"唱詩班席位"}
+{"Klobuk":"修士的帽子"}
+{"Ecclesiarch":"教堂司事"}
+{"Keys to the Kingdom of Heaven":"天國的鑰匙"}
+{"Scribe":"文士"}
+{"Craftiness (of the devil)":"(惡魔的)狡猾"}
+{"Noe's Ark":"諾埃方舟"}
+{"Ladle":"聖杓"}
+{"Scapegoat":"替罪羊"}
+{"Koliva":"蜜粥"}
+{"bell ringing":"鐘聲"}
+{"Bell Tower":"鐘樓"}
+{"A Colossus with feet of clay":"泥足巨人"}
+{"Kontakion":"集禱頌"}
+{"End of the world":"末世"}
+{"Constantinople":"君士坦丁堡"}
+{"Blasphemy":"褻瀆"}
+{"Moscow Kremlin":"克里姆林宮"}
+{"Cross":"十字架"}
+{"Pectoral cross":"佩帶在胸前的十字架"}
+{"Baptismal gown":"洗禮用的白襯衣"}
+{"to baptize":"施行洗禮"}
+{"to be baptized":"受洗禮"}
+{"Cross oneself":"畫十字"}
+{"Sign of the cross":"十字聖號"}
+{"Godmother":"教母"}
+{"Godfather":"教父"}
+{"Sacrament of baptism":"洗禮聖事"}
+{"Baptism of Rus":"羅斯受洗"}
+{"Holy Water Sprinkler":"聖水棒"}
+{"meek":"溫順"}
+{"liturgical cycle":"禮儀週期"}
+{"Easter cake":"復活蛋糕"}
+{"burning bush":"焚而不毀之荊棘"}
+{"Kutia":"蜜粥"}
+{"Trinity Sergius Lavra":"聖三一 謝爾蓋 大修道院"}
+{"Lazarus":"拉撒路"}
+{"Lamp":"油燈"}
+{"Latin":"拉丁語"}
+{"Legion of demons":"一群魔"}
+{"Sloth":"懶惰"}
+{"Mite":"零錢"}
+{"Ladder":"天梯"}
+{"Flattery":"諂媚"}
+{"False prophet":"假先知"}
+{"Perjury":"僞證"}
+{"Holy spoon":"聖匙"}
+{"face":"面容"}
+{"Litiya":"利提亞"}
+{"Liturgics":"禮拜學"}
+{"Liturgy of the catechumens":"望教者大祭禮儀"}
+{"Liturgy of the Presanctified Gifts":"預祭事奉聖禮"}
+{"usury":"受賄"}
+{"Personality":"個性"}
+{"Logos":"邏各斯"}
+{"deceit":"謊言"}
+{"Lot":"羅得"}
+{"Evil":"邪惡"}
+{"Covetousness":"貪財心"}
+{"Lutheranism":"路德教"}
+{"Lucifer":"路濟弗爾"}
+{"Loins":"懷內"}
+{"Magic":"魔法"}
+{"Mammon":"財神"}
+{"Manna":"嗎哪"}
+{"mantle":"斗篷"}
+{"Maria":"瑪利亞"}
+{"Maslenitsa":"謝肉節"}
+{"Mount of Olives":"橄欖山"}
+{"Mason":"共濟會員"}
+{"Matushka":"師太"}
+{"Mother (a nun)":"師太"}
+{"Matzah":"無酵餅"}
+{"Messiah":"彌賽亞"}
+{"Locum Tenens":"臨時代理者"}
+{"Menologion":"宗教日曆"}
+{"cast pearls before swine":"豬前投珠"}
+{"Sword":"劍"}
+{"Reward":"賞賜"}
+{"mercy":"憐憫"}
+{"alms":"施捨"}
+{"favor":"恩惠"}
+{"Menaion":"週年禮典"}
+{"General Menaion":"聖徒禮典"}
+{"Festal Menaion":"節日禮典"}
+{"Peace be to all":"祝大家平安"}
+{"eternal rest":"安息"}
+{"myrrh":"聖膏"}
+{"Chrismation":"聖膏奧祕"}
+{"Peacemaker":"締造和平者"}
+{"Myrrh-streaming":"施香液者"}
+{"mundane":"紅塵的"}
+{"laymen":"平信徒"}
+{"Mission":"佈道團"}
+{"Missionary":"傳教士"}
+{"Mystagogy":"解釋奧蹟"}
+{"Mysticism":"神祕論"}
+{"Mitre":"聖冠冕"}
+{"Metropolitan":"都主教"}
+{"Metropolis":"都主教的轄區"}
+{"Prayer":"祈禱"}
+{"Prayer book":"祈禱書"}
+{"Monastery":"修道院"}
+{"Monk":"修士"}
+{"Nun":"女修道士"}
+{"Monotheism":"一神論"}
+{"Monophysite":"一性論者"}
+{"Morality":"道德"}
+{"Moscow Patriarchate":"莫斯科及全俄羅斯牧首區"}
+{"Relics":"聖髑"}
+{"Martyr":"殉教者"}
+{"publican":"稅吏"}
+{"Meatfare":"離肉之日"}
+{"toll houses":"死後的考驗"}
+{"Gaiters":"方佩"}
+{"Pious":"虔誠"}
+{"Sermon on the Mount":"山中寶訓"}
+{"Nazareth":"拿撒勒"}
+{"Edification":"教訓"}
+{"Nazarene":"拿撒勒人"}
+{"edify":"教導"}
+{"rector":"主持"}
+{"Heavenly":"屬上天的"}
+{"Patron saint":"天上的庇護者"}
+{"Mysterious":"奧妙的"}
+{"Bride unwedded":"無玷之淨配"}
+{"Bride of Christ":"基督之淨配"}
+{"chastity":"貞潔"}
+{"Unworthy":"不配的"}
+{"Disgrace":"失寵"}
+{"Infirmity":"虛弱"}
+{"Neophyte":"新入教者"}
+{"Disobedience":"不服從"}
+{"Infallibility":"不可錯誤性"}
+{"Immaculate conception":"無染受胎"}
+{"Pure":"貞節"}
+{"Unrighteous":"不公正的"}
+{"Negligent":"懶惰"}
+{"Icon Not Made by Hands":"天成聖像"}
+{"Bear your cross":"背負十字架"}
+{"Nestorius":"聶斯托利"}
+{"Uncreated light":"非受造之光"}
+{"Imperishable":"不朽的"}
+{"Unexpected Joy":"意外的喜悅"}
+{"Unholy":"堅持造孽的"}
+{"Evil spirit":"不潔之力"}
+{"Unclean thoughts":"不純潔的念頭"}
+{"nicea":"尼西亞"}
+{"Nicene-Constantinople Creed":"尼西亞•君士坦丁堡的信經"}
+{"Beggar":"乞丐"}
+{"Poor in spirit":"精神上貧乏"}
+{"Novodevichy Convent":"新處女修道院"}
+{"New Martyr":"新殉教者"}
+{"now let thy servant depart in peace":"如今讓禰的僕人安然去世了"}
+{"Vow":"約言"}
+{"get dressed":"穿上"}
+{"Vestment":"衣裳"}
+{"Secularization":"世俗化"}
+{"Renovationism":"革新教派"}
+{"Deification":"聖化"}
+{"Seduction":"誘惑"}
+{"Image and likeness":"形像和樣式"}
+{"Reverse perspective":"反像透視法"}
+{"Betroth":"訂婚"}
+{"Rite":"儀式"}
+{"parish":"宗教團體"}
+{"catechumen":"慕道者"}
+{"Obsessed":"附魔的"}
+{"Odigitria Icon of Mother of God":"«示道»聖母像"}
+{"Occultism":"通靈論"}
+{"Sprinkle":"灑"}
+{"Omophorion":"披肩"}
+{"Unleavened bread":"無酵餅"}
+{"Optina":"奧普欽那"}
+{"Orarion":"禱帶"}
+{"Orlets":"鷹毯"}
+{"Orthodox":"正統的"}
+{"Hosanna":"澳莎那"}
+{"Consecration of holy gifts":"神聖祭獻"}
+{"Desecration":"褻瀆"}
+{"Condemn":"妄斷"}
+{"Otechnik":"聖徒傳"}
+{"Revelation of thoughts":"坦白全盤講出自己的意念"}
+{"Excommunicate":"開除教會"}
+{"Apostasy":"疏遠上帝"}
+{"Funeral service":"安魂禮儀"}
+{"forgive sins":"饒恕罪過"}
+{"Dismissal":"結束禱詞"}
+{"Renounce":"不認"}
+{"Desert fathers":"沙漠教父"}
+{"Our father who art in Heaven":"我們在天上的父"}
+{"Hermit":"獨居人"}
+{"cleanse the soul":"使心地純潔"}
+{"Fallen Angel":"墮落的天使"}
+{"mace":"方佩"}
+{"Pilgrim":"朝聖者"}
+{"Panagia":"主教胸牌"}
+{"Chandelier":"枝形狀的燭檯"}
+{"Panikhida":"薦度儀軌"}
+{"Pope":"羅馬教皇"}
+{"Porch":"教堂門前的台階及走廊"}
+{"Parastas":"薦度亡者儀軌"}
+{"Shepherd":"牧人"}
+{"Paterikon":"聖徒傳"}
+{"Patriarch":"牧首"}
+{"Patristics":"教父學"}
+{"Shroud":"織布"}
+{"First Called":"首召使徒"}
+{"Original sin":"原罪"}
+{"Primate":"宗主教"}
+{"High Priest":"祭司長"}
+{"The first hour":"一點課經"}
+{"Sadness":"悲痛"}
+{"Pontius Pilate":"般雀比拉多"}
+{"Scripture":"聖經"}
+{"Flesh":"肉體"}
+{"Victorious":"常勝者"}
+{"Compline":"暮時課"}
+{"Cassock":"長袍"}
+{"Candlestick":"燭檯"}
+{"Canon of repentance":"懺悔聖頌典"}
+{"worship":"敬拜"}
+{"veil":"帡幪"}
+{"protection":"庇護"}
+{"Polyeleos":"多慈頌"}
+{"midnight office":"半夜禱告"}
+{"Local Council":"地區宗教會議"}
+{"Sexton":"聖堂工友"}
+{"Trample":"戰勝"}
+{"Vice":"大缺點"}
+{"Armbands":"套袖"}
+{"Epistle":"使徒書信"}
+{"Obedience":"順從"}
+{"Novice":"見習修士"}
+{"Tonsure a monk":"剪髮當修士"}
+{"Sermon":"教訓"}
+{"Kiss of Judas":"猶大的一吻"}
+{"Belt":"腰帶"}
+{"Bowing":"鞠躬"}
+{"undefiled":"無罪的"}
+{"Morning rule":"早課經"}
+{"feast":"節日"}
+{"Twelve Great Feasts":"十二大節日"}
+{"Idle talk":"空話"}
+{"idle":"遊手好閒"}
+{"Transgression":"罪孽"}
+{"Tradition":"傳說"}
+{"Betrayal":"出賣"}
+{"Omen":"預兆"}
+{"Forefeast":"節日前一天"}
+{"prophecy":"預言"}
+{"hell":"地獄"}
+{"abyss":"深淵"}
+{"Adulterer":"通姦者"}
+{"Wisdom":"聖智慧"}
+{"Immaculate":"聖潔的"}
+{"Reverend":"可敬的神父"}
+{"venerable":"成德者"}
+{"Presbyter":"司鐸"}
+{"Refuge":"避難所"}
+{"side altar":"副祭壇"}
+{"Vocation":"使命"}
+{"Reconcile":"和解"}
+{"partake Holy Communion":"領聖餐"}
+{"Everlasting":"永遠存在的"}
+{"Parable":"寓言"}
+{"Congregation":"教民"}
+{"canonize":"封為聖人"}
+{"Advent":"降世"}
+{"Foresight":"先見之明"}
+{"Leprosy":"麻瘋病"}
+{"Leper":"麻瘋病人"}
+{"Curse":"詛咒"}
+{"Prokeimenon":"經前詠"}
+{"providence":"天意"}
+{"Preacher":"傳教士"}
+{"Prophet":"先知"}
+{"Enlighten":"光照"}
+{"prosphora":"聖餅"}
+{"Proskomedia":"奉獻禮儀"}
+{"Protestant":"基督教徒"}
+{"Archpriest":"首席司祭"}
+{"Psalm":"聖詠"}
+{"Psalms":"聖詠集"}
+{"Desert":"沙漠"}
+{"Servant of God":"上帝的奴僕"}
+{"Handmaid of the Lord":"主的女僕"}
+{"Rabbi":"拉比"}
+{"Equal to the Apostles":"與使徒相等的"}
+{"Radonitsa":"復活節後第二個週二"}
+{"Joy":"喜悅"}
+{"For God's sake":"在上帝的份上"}
+{"wise thief":"明智的強盜"}
+{"Paradise":"天堂"}
+{"Reliquary":"聖髑之靈柩"}
+{"Schismatic":"分裂派"}
+{"paint a church":"繪飾教堂牆壁"}
+{"Dissolute":"淫亂放蕩的"}
+{"Crucify on cross":"釘在十字架上"}
+{"Crucifixion":"釘死在十字架上"}
+{"paralytic":"病得虛弱的人"}
+{"rib":"肋骨"}
+{"Zealous":"熱心"}
+{"Religious":"宗教的"}
+{"Regent":"指揮者"}
+{"robe":"祭衣"}
+{"riza":"聖像金屬之飾"}
+{"Sacristy":"更衣所"}
+{"ripidion":"聖扇"}
+{"Memorial saturday":"死者安息日"}
+{"Russian Orthodox Church":"俄羅斯東正教會"}
+{"Ryasofor monk":"已著袍的見習修士"}
+{"Narthex":"教堂內部門廊"}
+{"Savva":"撒瓦"}
+{"Lord of hosts":"灑瓦奧夫"}
+{"Saul":"掃羅"}
+{"Sadducee":"撒都該"}
+{"Sakkos":"主教外衣"}
+{"sacred":"神禮的"}
+{"samaritan":"撒瑪利特人"}
+{"Autocracy":"沙皇制"}
+{"complacent":"自滿"}
+{"Self-sacrifice":"自我犧牲"}
+{"Samson":"參孫"}
+{"priestly rank":"司祭職位"}
+{"Sarah":"撒拉"}
+{"Satan":"撒旦"}
+{"Satanism":"惡魔崇拜"}
+{"Saul":"掃羅"}
+{"light of Christ":"基督之光"}
+{"gladsome light":"安靜之光"}
+{"Exapostilarion":"天亮詞"}
+{"Candle":"蠟燭"}
+{"Jehovah's Witnesses":"耶和華見證人"}
+{"Freedom from sin":"擺脫罪惡"}
+{"Freedom of religion":"信教自由"}
+{"Arch of temple":"教堂內的拱頂"}
+{"Self-will":"任性"}
+{"Holy Water":"聖水"}
+{"Holy Mountain":"聖山"}
+{"Holy Land":"聖地"}
+{"Holy Rus'":"神聖的羅斯"}
+{"Holy of Holies":"至聖所"}
+{"Holy Trinity":"聖三者"}
+{"Your Holiness":"至聖似的"}
+{"to bless ...":"使... 聖潔化"}
+{"blessing of ...":"使... 聖潔化"}
+{"Holy Communion":"聖餐"}
+{"Holy Spirit":"聖靈"}
+{"Holy oil":"聖油"}
+{"Holiness":"神聖性"}
+{"Sacrilege":"竊取教會財產"}
+{"Holy Mysteries":"聖體血"}
+{"shrine":"聖物"}
+{"Hieromartyr":"司祭殉教者"}
+{"church hierarchy":"教會的聖統制"}
+{"Sacred vessels":"聖器"}
+{"Holy Synod":"神聖公會"}
+{"Sessional Hymn":"坐誦聖詠"}
+{"Sedalen":"坐誦聖詠"}
+{"Sect":"教派"}
+{"Seminary":"宗教學校"}
+{"Seed of Abraham":"亞伯拉罕的子孫"}
+{"Septuagint":"七十子譯本"}
+{"Seraphim":"謝拉菲姆"}
+{"Lament":"抱怨"}
+{"Heavenly Forces":"天軍"}
+{"Sim":"閃"}
+{"Synagogue":"猶太教堂"}
+{"Synaxarion":"聖徒列傳"}
+{"Sanhedrin":"長老會議"}
+{"Sion":"錫安"}
+{"Filth":"污穢"}
+{"Tabernacle":"聖所"}
+{"skete":"隱修處"}
+{"Mourning":"悲痛的"}
+{"Tablets":"碑"}
+{"Skufia":"圓巾"}
+{"glory":"光榮"}
+{"Logos":"聖言"}
+{"Church service":"禮拜"}
+{"Mortal sin":"亡罪"}
+{"humble":"謙卑"}
+{"Fig tree":"無花果樹"}
+{"God is with us":"上帝與我們同在"}
+{"Unction":"聖油禮儀"}
+{"Sodom":"所多瑪"}
+{"conscience":"良心"}
+{"Treasure":"寶藏"}
+{"solea":"聖像壁前方"}
+{"Compassion":"憐憫"}
+{"Centurion":"百夫長"}
+{"save":"保全"}
+{"Descent into Hell":"下地獄"}
+{"Descent of the Holy Spirit":"聖靈降臨"}
+{"salvation":"救贖"}
+{"Pieces of silver":"銀幣"}
+{"Avarice":"貪財"}
+{"stavropegion":"直屬牧首之修道院"}
+{"elder":"長老"}
+{"flock":"羊群"}
+{"Old believer":"舊禮儀派教徒"}
+{"warden":"教堂總務長"}
+{"Songs of Ascents":"上行之歌"}
+{"Sticharion":"輔祭祭衣"}
+{"Sticheron":"頌歌"}
+{"stichera":"頌歌"}
+{"Stylite":"柱頂隱修士"}
+{"Suffering":"痛苦"}
+{"Hospitality":"接待朝聖者"}
+{"Passion of Christ":"基督受難"}
+{"passion bearer":"受難者"}
+{"Fear of God":"敬畏上帝"}
+{"Dread Judgment":"最後審判"}
+{"strict fast":"嚴格齋期"}
+{"Intrigue":"搞詭計"}
+{"Shame":"羞恥"}
+{"Grace of the Holy Spirit":"聖靈的恩典"}
+{"Superstition":"迷信"}
+{"Schism":"宗教分裂"}
+{"schema":"大聖衣"}
+{"schema monk":"大聖衣修士"}
+{"Son of God":"聖子"}
+{"Sacrament of Holy orders":"聖品聖事"}
+{"Secret prayer":"密禱祝文"}
+{"Talent":"塔蘭通"}
+{"talent":"天賦"}
+{"Firmament":"蒼天"}
+{"Creator":"創造主"}
+{"Work wonders":"製造奇蹟"}
+{"Name Day":"主保日"}
+{"Body of Christ":"基督體"}
+{"torment":"折磨"}
+{"Thorns":"荊棘"}
+{"Patience":"耐心"}
+{"Typikon":"教規"}
+{"Torah":"托拉"}
+{"Refectory":"餐廳"}
+{"triune":"三位一體的"}
+{"Triodion":"三重頌歌本"}
+{"Lent triodion":"大齋期三重頌歌本"}
+{"Trikirion":"三岔燭台"}
+{"Triptych":"三折聖像"}
+{"Trisagion":"三聖讚"}
+{"Trinity Cathedral":"聖三一大教堂"}
+{"Troparion":"聖頌"}
+{"Vanity":"虛榮心"}
+{"shackles":"枷鎖"}
+{"Mortify the flesh":"禁絕肉欲"}
+{"\"Tenderness\" Icon of Mother of God":"«充滿愛子之情»聖母聖像"}
+{"Uniates":"合併派教徒"}
+{"Prayer of the Heart":"心禱"}
+{"Despondency":"失望"}
+{"give rest":"長眠"}
+{"Church Statute":"教會禮儀年章程"}
+{"Monastic Rule":"修道院規章"}
+{"\"Comforter\" Icon of Mother of God":"«安慰者»聖母聖像"}
+{"To quench sorrow":"解除痛苦"}
+{"Pharisee":"法利賽人"}
+{"Filioque":"«和子»"}
+{"Philip's fast":"聖誕節前的齋期"}
+{"Chaldean":"迦勒底人"}
+{"Praise":"讚美"}
+{"Hospitable and generous":"慷慨好客的"}
+{"Kingdom of God":"上帝之國"}
+{"Celibacy":"獨身制"}
+{"Parochial school":"堂區的教會學校"}
+{"Chapel":"小教堂"}
+{"Horologion":"時課經"}
+{"book of hours":"時課經"}
+{"Hours service":"日課經"}
+{"The king's palace":"天君的宮殿"}
+{"prayer rope":"珠子"}
+{"Purgatory":"煉獄"}
+{"Womb":"腹部"}
+{"loins":"腰部"}
+{"reader":"誦讀者"}
+{"wonder-worker":"顯行靈蹟者"}
+{"Tent":"角錐形的圓屋頂"}
+{"Six Psalms":"六聖詠"}
+{"Eden":"伊甸園"}
+{"Exarchate":"都主教教區"}
+{"exegete":"聖經詮釋者"}
+{"Ecumenism":"普世基督(宗)教合一運動"}
+{"Eschatology":"末世論"}
+{"fool for christ":"聖愚"}
+{"Paganism":"多神教"}
+{"Manger":"馬糟"}
+{"Yahweh":"耶和華"}
