@@ -3,7 +3,7 @@ from typing import Dict, List, Optional
 
 # Import from our refactored modules
 from constants import MODELS, CUSTOM_CSS, ARENA_TITLE_HTML, BASIC_TITLE_HTML, API_KEY_MISSING_WARNING, API_KEY_INFO
-from utils import process_user_message, show_debug_query, show_command_indicator
+from utils import process_user_message, show_debug_query, show_command_indicator, display_assistant_message_with_copy_button
 from api_service import call_openrouter_api
 from settings import show_settings, load_api_key_from_file
 
@@ -80,7 +80,10 @@ def arena_chat():
         # Display Model A messages
         for message in st.session_state.messages_a:
             with st.chat_message(message["role"]):
-                st.markdown(message["content"])
+                if message["role"] == "assistant":
+                    display_assistant_message_with_copy_button(message["content"])
+                else:
+                    st.markdown(message["content"])
     
     with col_b:
         # Model B header - remove debug status
@@ -95,7 +98,10 @@ def arena_chat():
         # Display Model B messages
         for message in st.session_state.messages_b:
             with st.chat_message(message["role"]):
-                st.markdown(message["content"])
+                if message["role"] == "assistant":
+                    display_assistant_message_with_copy_button(message["content"])
+                else:
+                    st.markdown(message["content"])
     
     # Single chat input for both models
     if prompt := st.chat_input("Try: 'translate [text]' or 'annotate [text]' to compare responses..."):
@@ -136,7 +142,7 @@ def arena_chat():
                 
                 if response_a:
                     st.session_state.messages_a.append({"role": "assistant", "content": response_a})
-                    st.markdown(response_a)
+                    display_assistant_message_with_copy_button(response_a)
                 else:
                     st.error("❌ Failed to get response from Model A")
                     st.session_state.messages_a.pop()  # Remove user message if no response
@@ -151,7 +157,7 @@ def arena_chat():
                 
                 if response_b:
                     st.session_state.messages_b.append({"role": "assistant", "content": response_b})
-                    st.markdown(response_b)
+                    display_assistant_message_with_copy_button(response_b)
                 else:
                     st.error("❌ Failed to get response from Model B")
                     st.session_state.messages_b.pop()  # Remove user message if no response
@@ -182,7 +188,10 @@ def basic_chat():
     # Display chat messages
     for message in st.session_state.messages:
         with st.chat_message(message["role"]):
-            st.markdown(message["content"])
+            if message["role"] == "assistant":
+                display_assistant_message_with_copy_button(message["content"])
+            else:
+                st.markdown(message["content"])
     
     # Chat input with dynamic placeholder
     placeholder_text = "Try: 'translate [text]' for translation or 'annotate [text]' for Bible quotes..."
@@ -213,7 +222,7 @@ def basic_chat():
             if response:
                 # Add assistant response to chat
                 st.session_state.messages.append({"role": "assistant", "content": response})
-                st.markdown(response)
+                display_assistant_message_with_copy_button(response)
             else:
                 st.error("❌ Failed to get response from AI. Please try again.")
                 # Remove the user message if we couldn't get a response

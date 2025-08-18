@@ -4,6 +4,7 @@ from constants import ORTHODOX_TRANSLATION_PROMPT, BIBLE_ANNOTATION_PROMPT
 from orthodox_dictionary import OrthodoxDictionary
 from bible_service import process_footnotes, extract_bible_references, parse_bible_reference, fetch_bible_text
 import re
+import uuid
 
 # Initialize the Orthodox Dictionary handler with the directory path
 orthodox_dict = OrthodoxDictionary(dict_dir="dict", min_score=65)
@@ -219,3 +220,19 @@ def show_command_indicator(command_type: str, orthodox_enabled: bool = False):
         st.info("ℹ️ **Standard Translation**: Orthodox Christian context is disabled. Enable it in settings for specialized theological translations.")
     elif command_type == "add_footnotes":
         st.info("📝 **Bible Footnotes Mode**: Adding full Bible text as footnotes for each reference")
+
+# New function to display assistant message with copy button using expander
+def display_assistant_message_with_copy_button(message_content: str):
+    """
+    Display an assistant message with a 'Copy as Markdown' button.
+    Uses Streamlit's expander to provide a copy option.
+    
+    Args:
+        message_content: The markdown content of the message
+    """
+    # Display the message
+    st.markdown(message_content)
+    
+    # Add an expander for copying
+    with st.expander("📋 Copy as Markdown"):
+        st.code(message_content, language=None)
