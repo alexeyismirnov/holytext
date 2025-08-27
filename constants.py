@@ -1,7 +1,5 @@
 # Available models
 MODELS = {
-    "Qwen3 8B (Free)": "qwen/qwen3-8b:free",
-    "Qwen3 32B (Free)": "qwen/qwen3-32b:free", 
     "Llama 3.3 70B": "meta-llama/llama-3.3-70b-instruct"
 }
 
