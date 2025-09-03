@@ -101,50 +101,62 @@ class OrthodoxDictionary:
         if "orthodox_min_score" in st.session_state:
             self.min_score = st.session_state.orthodox_min_score
             self.fuzzy_matcher.min_score = self.min_score
-            
-        matches = []
+        
+        # Split text into sentences for more accurate matching
+        sentences = re.split(r'[.!?]+', text)
+        sentences = [s.strip() for s in sentences if s.strip()]
+        
+        all_matches = []
         english_terms = self.get_all_english_terms()
         
-        # First pass: Direct substring matching (case insensitive)
-        direct_matches = []
-        for term in english_terms:
-            if term.lower() in text.lower():
-                # Direct match found
-                direct_matches.append((term, self.terms_dict[term], 100.0))
-        
-        # Add direct matches to our results
-        matches.extend(direct_matches)
-        
-        # Second pass: Word-level matching
-        for term in english_terms:
-            # Skip terms we've already directly matched
-            if any(term == direct_term for direct_term, _, _ in direct_matches):
-                continue
-                
-            # Check individual words in the text against each term
-            words = re.findall(r'\b\w+\b', text.lower())
-            term_words = re.findall(r'\b\w+\b', term.lower())
+        # Process each sentence separately
+        for sentence in sentences:
+            sentence_matches = []
             
-            # If all words in the term are found in the text (in any order)
-            if all(word in words for word in term_words) and len(term_words) > 1:
-                matches.append((term, self.terms_dict[term], 90.0))
-        
-        # Third pass: Fuzzy matching for each term
-        # Even if we have direct matches, still try fuzzy matching for other terms
-        for term in english_terms:
-            # Skip terms we've already matched
-            if any(term == matched_term for matched_term, _, _ in matches):
-                continue
-                
-            # Use token_set_ratio which is good for finding terms within longer text
-            score = fuzz.token_set_ratio(term.lower(), text.lower())
+            # First pass: Direct substring matching (case insensitive)
+            direct_matches = []
+            for term in english_terms:
+                if term.lower() in sentence.lower():
+                    # Direct match found
+                    direct_matches.append((term, self.terms_dict[term], 100.0))
             
-            if score >= self.min_score:  # Use the current min_score value
-                matches.append((term, self.terms_dict[term], float(score)))
+            # Add direct matches to our results
+            sentence_matches.extend(direct_matches)
+            
+            # Second pass: Word-level matching
+            for term in english_terms:
+                # Skip terms we've already directly matched
+                if any(term == direct_term for direct_term, _, _ in direct_matches):
+                    continue
+                    
+                # Check individual words in the text against each term
+                words = re.findall(r'\b\w+\b', sentence.lower())
+                term_words = re.findall(r'\b\w+\b', term.lower())
+                
+                # If all words in the term are found in the text (in any order)
+                if all(word in words for word in term_words) and len(term_words) > 1:
+                    sentence_matches.append((term, self.terms_dict[term], 90.0))
+            
+            # Third pass: Fuzzy matching for each term
+            # Use a slightly higher threshold for fuzzy matching in sentences
+            fuzzy_min_score = self.min_score   # Increase threshold for fuzzy matching
+            
+            for term in english_terms:
+                # Skip terms we've already matched
+                if any(term == matched_term for matched_term, _, _ in sentence_matches):
+                    continue
+                    
+                # Use token_set_ratio which is good for finding terms within longer text
+                score = fuzz.token_set_ratio(term.lower(), sentence.lower())
+                
+                if score >= fuzzy_min_score:  # Use higher threshold
+                    sentence_matches.append((term, self.terms_dict[term], float(score)))
+            
+            all_matches.extend(sentence_matches)
         
         # Remove duplicates (keep highest score)
         unique_matches = {}
-        for term, translations, score in matches:
+        for term, translations, score in all_matches:
             if term not in unique_matches or score > unique_matches[term][1]:
                 unique_matches[term] = (translations, score)
         
