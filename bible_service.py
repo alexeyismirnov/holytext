@@ -40,7 +40,7 @@ def parse_bible_reference(reference: str) -> Optional[Tuple[str, str]]:
         "1 chronicles": "1chron", "1 chron": "1chron", "i chron": "1chron", "i chronicles": "1chron",
         "2 chronicles": "2chron", "2 chron": "2chron", "ii chron": "2chron", "ii chronicles": "2chron",
         "matthew": "matthew", "mark": "mark", "luke": "luke", "john": "john",
-        "acts": "acts", "romans": "rom", "galatians": "gal", "ephesians": "eph",
+        "acts": "acts", "romans": "rom", "galatians": "gal", "ephesians": "ephes",
         "philippians": "phil", "colossians": "col", "titus": "titus", "philemon": "philem",
         "hebrews": "heb", "james": "james", "jude": "jude", "revelation": "rev",
         "genesis": "gen", "exodus": "exod", "leviticus": "lev", "numbers": "num",
