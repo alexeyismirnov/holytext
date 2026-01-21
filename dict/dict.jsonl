@@ -15,7 +15,7 @@
 {"Archbishop":"大主教"}
 {"Ascetic":"苦行者"}
 {"Atheism":"無神論"}
-{"Athos":"阿封山"}
+{"Athos":"阿索斯山"}
 {"Aaron":"亞倫"}
 {"Abba":"阿爸"}
 {"Habakkuk":"哈巴谷"}
@@ -123,7 +123,6 @@
 {"Venerable":"可敬的"}
 {"Holy Cross":"十字聖架"}
 {"Prayer-beads":"珠子"}
-{"Iconostasis row":"聖像壁上的某一列"}
 {"Monastic rank":"各級修士"}
 {"gluttony":"貪食"}
 {"Wonder":"靈蹟"}
@@ -266,7 +265,7 @@
 {"Icon painter":"聖像畫家"}
 {"Icon painting studio":"聖像畫坊"}
 {"Veneration of icons":"聖像敬奉"}
-{"Iconostas":"聖像壁"}
+{"Iconostasis":"聖像屏"}
 {"Ikos":"長讚美歌"}
 {"Name Day":"命名日"}
 {"Hallowed be Thy name":"願人都尊禰的名為聖"}
@@ -592,7 +591,7 @@
 {"edify":"教導"}
 {"rector":"主持"}
 {"Heavenly":"屬上天的"}
-{"Patron saint":"天上的庇護者"}
+{"Patron saint":"守護聖人"}
 {"Mysterious":"奧妙的"}
 {"Bride unwedded":"無玷之淨配"}
 {"Bride of Christ":"基督之淨配"}
@@ -645,7 +644,6 @@
 {"Optina":"奧普欽那"}
 {"Orarion":"禱帶"}
 {"Orlets":"鷹毯"}
-{"Orthodox":"正統的"}
 {"Hosanna":"澳莎那"}
 {"Consecration of holy gifts":"神聖祭獻"}
 {"Desecration":"褻瀆"}
@@ -677,7 +675,6 @@
 {"Patristics":"教父學"}
 {"Shroud":"織布"}
 {"First Called":"首召使徒"}
-{"Original sin":"原罪"}
 {"Primate":"宗主教"}
 {"High Priest":"祭司長"}
 {"The first hour":"一點課經"}
@@ -724,7 +721,6 @@
 {"hell":"地獄"}
 {"abyss":"深淵"}
 {"Adulterer":"通姦者"}
-{"Wisdom":"聖智慧"}
 {"Immaculate":"聖潔的"}
 {"Reverend":"可敬的神父"}
 {"venerable":"成德者"}
@@ -961,3 +957,4 @@
 {"Yahweh":"耶和華"}
 {"miracle": "奇蹟"}
 {"Miraculous": "奇跡的"}
+{"metochion": "屬館"}
