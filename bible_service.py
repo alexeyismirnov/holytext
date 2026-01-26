@@ -43,7 +43,7 @@ def parse_bible_reference(reference: str) -> Optional[Tuple[str, str]]:
         "acts": "acts", "romans": "rom", "galatians": "gal", "ephesians": "ephes",
         "philippians": "phil", "colossians": "col", "titus": "titus", "philemon": "philem",
         "hebrews": "heb", "james": "james", "jude": "jude", "revelation": "rev",
-        "genesis": "gen", "exodus": "exod", "leviticus": "lev", "numbers": "num",
+        "genesis": "gen", "exodus": "ex", "leviticus": "lev", "numbers": "num",
         "deuteronomy": "deut", "joshua": "josh", "judges": "judg", "ruth": "ruth",
         "ezra": "ezra", "nehemiah": "neh", "esther": "esth", "job": "job",
         "psalms": "ps", "psalm": "ps", "proverbs": "prov", "ecclesiastes": "eccl",
