@@ -184,6 +184,8 @@ class OrthodoxDictionary:
         # Create the dictionary prompt
         prompt = "\nWhen translating the text, you MUST use the following dictionary of special Orthodox Christian terms:\n\n"
         
+        prompt_rus = "When transliterating Russian people's names, put the original name (in English) in brackets along with the corresponding Chinese transliteration.\n"
+
         # Add each term with all its translations
         for english, chinese_translations, _ in matches:
             if len(chinese_translations) == 1:
