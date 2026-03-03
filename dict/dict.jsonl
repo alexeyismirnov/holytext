@@ -446,7 +446,7 @@
 {"Cain":"該隱"}
 {"Kamilavka":"禮節帽"}
 {"Cana in Galilee":"加利利迦拿城"}
-{"Praying Canon":"聖頌典"}
+{"Canon":"聖頌典"}
 {"canonical":"合乎教規的"}
 {"canonicity":"合乎教規"}
 {"Canon":"教規"}
@@ -657,7 +657,7 @@
 {"Apostasy":"疏遠上帝"}
 {"Funeral service":"安魂禮儀"}
 {"forgive sins":"饒恕罪過"}
-{"Dismissal":"結束禱詞"}
+{"Dismissal":"遣散式"}
 {"Renounce":"不認"}
 {"Desert fathers":"沙漠教父"}
 {"Our father who art in Heaven":"我們在天上的父"}
@@ -680,7 +680,7 @@
 {"First Called":"首召使徒"}
 {"Primate":"宗主教"}
 {"High Priest":"祭司長"}
-{"The first hour":"一點課經"}
+{"The first hour":"第一時課"}
 {"Sadness":"悲痛"}
 {"Pontius Pilate":"般雀比拉多"}
 {"Scripture":"聖經"}
@@ -751,7 +751,7 @@
 {"Protestant":"基督教徒"}
 {"Archpriest":"首席司祭"}
 {"Psalm":"聖詠"}
-{"Psalms":"聖詠集"}
+{"Psalter":"聖詠經"}
 {"Desert":"沙漠"}
 {"Servant of God":"上帝的奴僕"}
 {"Handmaid of the Lord":"主的女僕"}
@@ -936,7 +936,6 @@
 {"Parochial school":"堂區的教會學校"}
 {"Chapel":"小教堂"}
 {"Horologion":"時課經"}
-{"book of hours":"時課經"}
 {"Hours service":"日課經"}
 {"The king's palace":"天君的宮殿"}
 {"prayer rope":"珠子"}
@@ -970,3 +969,9 @@
 {"commemoration sheets": "祈禱箋"}
 {"commemoration slips": "祈禱箋"}
 {"sorokoust": "四十日祈禱"}
+{"Rejoice, O Virgin Theotokos": "慶哉、童貞誕神女"}
+{"O Gladsome Light": "禧光頌"}
+{"God is the Lord": "上帝是主"}
+{"Angelic Council": "天使同"}
+{"Song of the Theotokos ": "聖生神女之歌"}
+{"Let every breath praise the Lord": "凡有呼吸者宜讚揚主"}
