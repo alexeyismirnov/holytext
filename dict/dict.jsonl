@@ -114,8 +114,7 @@
 {"Church Slavonic":"教會斯拉夫語"}
 {"Temple":"教堂"}
 {"Temple":"聖殿"}
-{"Horologion":"日課經"}
-{"Book of the Hours":"時課經"}
+{"Horologion":"時課經"}
 {"chalice":"聖爵"}
 {"Humanity":"博愛"}
 {"black clergy":"出世的神職人員"}
@@ -936,7 +935,7 @@
 {"Parochial school":"堂區的教會學校"}
 {"Chapel":"小教堂"}
 {"Horologion":"時課經"}
-{"Hours service":"日課經"}
+{"Book of Hours":"時課經"}
 {"The king's palace":"天君的宮殿"}
 {"prayer rope":"珠子"}
 {"Purgatory":"煉獄"}
@@ -975,3 +974,5 @@
 {"Angelic Council": "天使同"}
 {"Song of the Theotokos ": "聖生神女之歌"}
 {"Let every breath praise the Lord": "凡有呼吸者宜讚揚主"}
+{"Vigil": "守夜"}
+{"The Blameless": "「君子」"}
